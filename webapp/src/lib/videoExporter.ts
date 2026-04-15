@@ -108,7 +108,7 @@ export async function exportVideoFromDOM(
     // isReady() が true になるまでポーリング（最大2秒）
     const deadline = performance.now() + 2000;
     while (!isReady() && performance.now() < deadline) {
-      await new Promise<void>((r) => requestAnimationFrame(r));
+      await new Promise<void>((r) => requestAnimationFrame(() => r()));
     }
   }
 

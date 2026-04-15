@@ -8,7 +8,7 @@ import type {
 } from "../types/slides";
 import type { TimingEntry } from "./timingParser";
 import { inferSlideType, labelShape } from "./labeler";
-import { ANIMATION_RULES, isBackgroundLabel, calculateDelays } from "./animationAssigner";
+import { ANIMATION_RULES, calculateDelays } from "./animationAssigner";
 
 const OUTPUT_WIDTH = 1920;
 const OUTPUT_HEIGHT = 1080;
@@ -127,7 +127,7 @@ function shapeToElement(
 export function mergeAndAssign(
   rawData: RawShapesData,
   timingEntries: TimingEntry[],
-  narrations: string[]
+  _narrations: string[]
 ): SlidesData {
   const slidesOutput: Slide[] = [];
 
@@ -175,9 +175,6 @@ export function mergeAndAssign(
         }
       }
     }
-
-    // ナレーション追加（あれば）
-    const narration = narrations[si] || undefined;
 
     slidesOutput.push({
       slide_index: si,

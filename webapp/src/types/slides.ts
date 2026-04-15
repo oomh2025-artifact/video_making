@@ -1,41 +1,33 @@
 // remotion/src/types.ts と完全互換の型定義
-
 export type AnimationType =
   | "fadeIn"
   | "scaleIn"
   | "slideInLeft"
   | "slideInRight"
   | "slideInBottom";
-
 export type SlideType = "cover" | "paragraph" | "list" | "end";
-
 export type ElementLabel =
   | "COVER_TITLE" | "SLIDE_TITLE" | "BODY_PARAGRAPH"
   | "LIST_NUMBER" | "LIST_HEADING" | "LIST_BODY"
   | "SOURCE_CITATION" | "BOTTOM_TAKEAWAY" | "PAGE_NUMBER"
   | "CONTENT_ICON" | "BOTTOM_TAKEAWAY_ICON"
   | "LOGO" | "CHART_IMAGE";
-
 // 背景層ラベル（slides.jsonには含めない）
 export type BackgroundLabel =
   | "BG_FILL" | "HEADER_STRIPE" | "FOOTER_STRIPE"
   | "TITLE_LINE" | "BOTTOM_BAR" | "LIST_DIVIDER"
   | "CONTENT_AREA_BG" | "ACCENT_SHAPE";
-
 export type AnyLabel = ElementLabel | BackgroundLabel;
-
 export interface Animation {
   type: AnimationType;
   delay: number;
   duration: number;
 }
-
 export interface TextSpan {
   text: string;
   color?: string;
   bold?: boolean;
 }
-
 export interface SlideElement {
   id: string;
   label: ElementLabel;
@@ -48,19 +40,18 @@ export interface SlideElement {
   spans?: TextSpan[];
   fontSize?: number;
   fontColor?: string;
+  bgColor?: string;
   fontWeight?: "normal" | "bold";
   lineHeight?: number;
   iconSrc?: string;
   imageSrc?: string;
   animation: Animation;
 }
-
 export interface SlideAudio {
   src: string;
   duration_sec: number;
   offset_sec: number;
 }
-
 export interface Slide {
   slide_index: number;
   slide_type: SlideType;
@@ -69,7 +60,6 @@ export interface Slide {
   audio?: SlideAudio | null;
   elements: SlideElement[];
 }
-
 export interface SlidesData {
   meta: {
     source_file: string;
@@ -80,7 +70,6 @@ export interface SlidesData {
   };
   slides: Slide[];
 }
-
 // PPTXパーサーの中間データ型
 export interface TextRun {
   text: string;
@@ -90,7 +79,6 @@ export interface TextRun {
   italic: boolean;
   font_name: string | null;
 }
-
 export interface RawShape {
   slide_index: number;
   shape_id: number;
@@ -115,12 +103,10 @@ export interface RawShape {
   image_content_type: string | null;
   image_filename: string | null;
 }
-
 export interface RawSlide {
   slide_index: number;
   shapes: RawShape[];
 }
-
 export interface RawShapesData {
   source_file: string;
   slide_width_emu: number;

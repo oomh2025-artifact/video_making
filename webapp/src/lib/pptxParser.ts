@@ -8,8 +8,6 @@ import type { RawShape, RawSlide, RawShapesData, TextRun } from "../types/slides
 const OUTPUT_WIDTH = 1920;
 const OUTPUT_HEIGHT = 1080;
 
-const NS_A = "http://schemas.openxmlformats.org/drawingml/2006/main";
-
 function emuToPx(emu: number, slideDimEmu: number, outputDim: number): number {
   if (slideDimEmu === 0) return 0;
   return Math.round((emu / slideDimEmu) * outputDim);
