@@ -1,0 +1,1133 @@
+[
+  {
+    "slide_type": "cover",
+    "elements": [
+      {
+        "description": "スライド全体の背景塗り",
+        "label": "BG_FILL",
+        "text": null,
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "上部の青いストライプ装飾帯",
+        "label": "HEADER_STRIPE",
+        "text": null,
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "下部の青いストライプ装飾帯",
+        "label": "FOOTER_STRIPE",
+        "text": null,
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "表紙のメインタイトル",
+        "label": "COVER_TITLE",
+        "text": "快眠習慣で毎日のパフォーマンスを変える",
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "タイトル下の青い区切り線",
+        "label": "TITLE_LINE",
+        "text": null,
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "右下のロゴ（産業保健とこころのオフィス）",
+        "label": "LOGO",
+        "text": null,
+        "icon_description": "青い円形アイコンと産業保健とこころのオフィスのテキスト",
+        "list_index": null
+      },
+      {
+        "description": "右下のページ番号",
+        "label": "PAGE_NUMBER",
+        "text": "1 / 9",
+        "icon_description": null,
+        "list_index": null
+      }
+    ],
+    "slide_index": 0
+  },
+  {
+    "slide_type": "paragraph",
+    "elements": [
+      {
+        "description": "スライド全体の背景塗り",
+        "label": "BG_FILL",
+        "text": null,
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "上部のストライプ装飾帯",
+        "label": "HEADER_STRIPE",
+        "text": null,
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "スライドのメインタイトル",
+        "label": "SLIDE_TITLE",
+        "text": "4割が睡眠不足！",
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "タイトル下の区切り線",
+        "label": "TITLE_LINE",
+        "text": null,
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "左側のコンテンツ背景エリア",
+        "label": "CONTENT_AREA_BG",
+        "text": null,
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "疲れた顔のアイコン",
+        "label": "CONTENT_ICON",
+        "text": null,
+        "icon_description": "困った表情のオレンジ色の顔アイコン",
+        "list_index": null
+      },
+      {
+        "description": "人物アイコンの図解",
+        "label": "CONTENT_ICON",
+        "text": null,
+        "icon_description": "オレンジ4人と青4人の人物アイコン配列",
+        "list_index": null
+      },
+      {
+        "description": "睡眠不足に関する説明文",
+        "label": "BODY_PARAGRAPH",
+        "text": "厚生労働省は「睡眠は6時間以上が望ましい」としていますが、日本人の約4割はこの基準を満たしていません。",
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "データの出典情報",
+        "label": "SOURCE_CITATION",
+        "text": "出典：厚生労働省　健康づくりのための睡眠ガイド2023、生活習慣調査の結果",
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "下部まとめバーの背景",
+        "label": "BOTTOM_BAR",
+        "text": null,
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "まとめバー内の電球アイコン",
+        "label": "BOTTOM_TAKEAWAY_ICON",
+        "text": null,
+        "icon_description": "黄色の電球アイコン",
+        "list_index": null
+      },
+      {
+        "description": "まとめメッセージのテキスト",
+        "label": "BOTTOM_TAKEAWAY",
+        "text": "多くの人が睡眠不足に陥っている現状を理解しましょう",
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "ページ番号",
+        "label": "PAGE_NUMBER",
+        "text": "2 / 9",
+        "icon_description": null,
+        "list_index": null
+      }
+    ],
+    "slide_index": 1
+  },
+  {
+    "slide_type": "list",
+    "elements": [
+      {
+        "description": "上部のストライプ装飾帯",
+        "label": "HEADER_STRIPE",
+        "text": null,
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "スライド全体の背景塗り",
+        "label": "BG_FILL",
+        "text": null,
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "スライドタイトル",
+        "label": "SLIDE_TITLE",
+        "text": "これって「睡眠不足」かも？",
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "タイトル下の区切り線",
+        "label": "TITLE_LINE",
+        "text": null,
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "人の頭部とビックリマークのアイコン",
+        "label": "CONTENT_ICON",
+        "text": null,
+        "icon_description": "人の横顔のシルエット内に時計とビックリマークが表示されたアイコン",
+        "list_index": null
+      },
+      {
+        "description": "リスト項目1の番号",
+        "label": "LIST_NUMBER",
+        "text": "1",
+        "icon_description": null,
+        "list_index": 0
+      },
+      {
+        "description": "リスト項目1の見出し",
+        "label": "LIST_HEADING",
+        "text": "集中力低下",
+        "icon_description": null,
+        "list_index": 0
+      },
+      {
+        "description": "リスト項目1の説明文",
+        "label": "LIST_BODY",
+        "text": "仕事や勉強に集中できない状態が続いている場合は睡眠時間が不足している可能性があります",
+        "icon_description": null,
+        "list_index": 0
+      },
+      {
+        "description": "リスト項目2の番号",
+        "label": "LIST_NUMBER",
+        "text": "2",
+        "icon_description": null,
+        "list_index": 1
+      },
+      {
+        "description": "リスト項目2の見出し",
+        "label": "LIST_HEADING",
+        "text": "感情の不安定さ",
+        "icon_description": null,
+        "list_index": 1
+      },
+      {
+        "description": "リスト項目2の説明文",
+        "label": "LIST_BODY",
+        "text": "些細なことでイライラしたり、感情のコントロールが難しくなっている状態です",
+        "icon_description": null,
+        "list_index": 1
+      },
+      {
+        "description": "リスト項目3の番号",
+        "label": "LIST_NUMBER",
+        "text": "3",
+        "icon_description": null,
+        "list_index": 2
+      },
+      {
+        "description": "リスト項目3の見出し",
+        "label": "LIST_HEADING",
+        "text": "疲労の蓄積",
+        "icon_description": null,
+        "list_index": 2
+      },
+      {
+        "description": "リスト項目3の説明文",
+        "label": "LIST_BODY",
+        "text": "十分に休んでいるはずなのに疲れが取れない、だるさが続く症状です",
+        "icon_description": null,
+        "list_index": 2
+      },
+      {
+        "description": "リスト項目4の番号",
+        "label": "LIST_NUMBER",
+        "text": "4",
+        "icon_description": null,
+        "list_index": 3
+      },
+      {
+        "description": "リスト項目4の見出し",
+        "label": "LIST_HEADING",
+        "text": "やる気の低下",
+        "icon_description": null,
+        "list_index": 3
+      },
+      {
+        "description": "リスト項目4の説明文",
+        "label": "LIST_BODY",
+        "text": "モチベーションが上がらず、普段楽しいと感じることにも興味を持てない状態が続いています",
+        "icon_description": null,
+        "list_index": 3
+      },
+      {
+        "description": "下部まとめバー",
+        "label": "BOTTOM_BAR",
+        "text": null,
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "まとめバー内のアイコン",
+        "label": "BOTTOM_TAKEAWAY_ICON",
+        "text": null,
+        "icon_description": "黄色い電球アイコン",
+        "list_index": null
+      },
+      {
+        "description": "下部まとめメッセージのテキスト",
+        "label": "BOTTOM_TAKEAWAY",
+        "text": "これらの症状に心当たりがある場合は、睡眠不足かもしれません",
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "ページ番号",
+        "label": "PAGE_NUMBER",
+        "text": "3 / 9",
+        "icon_description": null,
+        "list_index": null
+      }
+    ],
+    "slide_index": 2
+  },
+  {
+    "slide_type": "paragraph",
+    "elements": [
+      {
+        "description": "上部のストライプ装飾帯",
+        "label": "HEADER_STRIPE",
+        "text": null,
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "スライドのメインタイトル",
+        "label": "SLIDE_TITLE",
+        "text": "快眠のカギは自律神経",
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "タイトル下の区切り線",
+        "label": "TITLE_LINE",
+        "text": null,
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "太陽のアイコン",
+        "label": "CONTENT_ICON",
+        "text": null,
+        "icon_description": "太陽のイラスト",
+        "list_index": null
+      },
+      {
+        "description": "交感神経の説明文",
+        "label": "BODY_PARAGRAPH",
+        "text": "交感神経　→朝に体を活発\n副交感神経→夜に体をリラックス",
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "月のアイコン",
+        "label": "CONTENT_ICON",
+        "text": null,
+        "icon_description": "月のイラスト",
+        "list_index": null
+      },
+      {
+        "description": "質の良い睡眠についての本文",
+        "label": "BODY_PARAGRAPH",
+        "text": "質の良い睡眠のためには、\n寝る前に副交感神経を高めることが\n重要です。",
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "下部まとめバーの背景",
+        "label": "BOTTOM_BAR",
+        "text": null,
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "まとめメッセージのアイコン",
+        "label": "BOTTOM_TAKEAWAY_ICON",
+        "text": null,
+        "icon_description": "電球アイコン",
+        "list_index": null
+      },
+      {
+        "description": "下部まとめメッセージ",
+        "label": "BOTTOM_TAKEAWAY",
+        "text": "寝る前は副交感神経の働きを高めることがポイントです",
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "ページ番号",
+        "label": "PAGE_NUMBER",
+        "text": "4 / 9",
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "下部のストライプ装飾帯",
+        "label": "FOOTER_STRIPE",
+        "text": null,
+        "icon_description": null,
+        "list_index": null
+      }
+    ],
+    "slide_index": 3
+  },
+  {
+    "slide_type": "list",
+    "elements": [
+      {
+        "description": "上部のストライプ装飾帯",
+        "label": "HEADER_STRIPE",
+        "text": null,
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "スライド全体の背景塗り",
+        "label": "BG_FILL",
+        "text": null,
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "スライドタイトル",
+        "label": "SLIDE_TITLE",
+        "text": "眠りを整えるちょっとした工夫",
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "タイトル下の区切り線",
+        "label": "TITLE_LINE",
+        "text": null,
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "目覚まし時計のアイコン",
+        "label": "CONTENT_ICON",
+        "text": null,
+        "icon_description": "目覚まし時計",
+        "list_index": null
+      },
+      {
+        "description": "リスト項目1の番号",
+        "label": "LIST_NUMBER",
+        "text": "1",
+        "icon_description": null,
+        "list_index": 0
+      },
+      {
+        "description": "リスト項目1の見出し",
+        "label": "LIST_HEADING",
+        "text": "起床時間を一定に",
+        "icon_description": null,
+        "list_index": 0
+      },
+      {
+        "description": "リスト項目1の説明文",
+        "label": "LIST_BODY",
+        "text": "体内時計を整え、自然な眠気を促すリズムを作ることができます",
+        "icon_description": null,
+        "list_index": 0
+      },
+      {
+        "description": "コーヒーカップのアイコン",
+        "label": "CONTENT_ICON",
+        "text": null,
+        "icon_description": "湯気の立つコーヒーカップ",
+        "list_index": null
+      },
+      {
+        "description": "リスト項目2の番号",
+        "label": "LIST_NUMBER",
+        "text": "2",
+        "icon_description": null,
+        "list_index": 1
+      },
+      {
+        "description": "リスト項目2の見出し",
+        "label": "LIST_HEADING",
+        "text": "カフェイン・スマホの使い方見直し",
+        "icon_description": null,
+        "list_index": 1
+      },
+      {
+        "description": "リスト項目2の説明文",
+        "label": "LIST_BODY",
+        "text": "夕方以降のカフェイン・就寝前のスマホは睡眠の質を低下させます",
+        "icon_description": null,
+        "list_index": 1
+      },
+      {
+        "description": "下部まとめバーの背景",
+        "label": "BOTTOM_BAR",
+        "text": null,
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "下部まとめバー内の電球アイコン",
+        "label": "BOTTOM_TAKEAWAY_ICON",
+        "text": null,
+        "icon_description": "電球",
+        "list_index": null
+      },
+      {
+        "description": "下部まとめメッセージ",
+        "label": "BOTTOM_TAKEAWAY",
+        "text": "日常の小さな習慣を変えることから始めてみましょう",
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "ページ番号",
+        "label": "PAGE_NUMBER",
+        "text": "5 / 9",
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "下部のストライプ装飾帯",
+        "label": "FOOTER_STRIPE",
+        "text": null,
+        "icon_description": null,
+        "list_index": null
+      }
+    ],
+    "slide_index": 4
+  },
+  {
+    "slide_type": "paragraph",
+    "elements": [
+      {
+        "description": "上部の水色ストライプ装飾帯",
+        "label": "HEADER_STRIPE",
+        "text": null,
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "スライドのメインタイトル",
+        "label": "SLIDE_TITLE",
+        "text": "軽い運動が、深い眠りを呼び込む",
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "タイトル下の青色区切り線",
+        "label": "TITLE_LINE",
+        "text": null,
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "歩いている人のアイコン",
+        "label": "CONTENT_ICON",
+        "text": null,
+        "icon_description": "水色の歩行者アイコン",
+        "list_index": null
+      },
+      {
+        "description": "ストレッチをしている人のアイコン",
+        "label": "CONTENT_ICON",
+        "text": null,
+        "icon_description": "水色のストレッチアイコン",
+        "list_index": null
+      },
+      {
+        "description": "本文テキスト",
+        "label": "BODY_PARAGRAPH",
+        "text": "日中にウォーキングやストレッチなどを行うことで、夜により深い眠りを得ることができます。",
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "下部まとめバーの背景",
+        "label": "BOTTOM_BAR",
+        "text": null,
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "まとめバー内の電球アイコン",
+        "label": "BOTTOM_TAKEAWAY_ICON",
+        "text": null,
+        "icon_description": "黄色の電球アイコン",
+        "list_index": null
+      },
+      {
+        "description": "まとめメッセージ",
+        "label": "BOTTOM_TAKEAWAY",
+        "text": "息が上がらない程度の軽い運動を取り入れることを心がけましょう",
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "ページ番号",
+        "label": "PAGE_NUMBER",
+        "text": "6 / 9",
+        "icon_description": null,
+        "list_index": null
+      }
+    ],
+    "slide_index": 5
+  },
+  {
+    "slide_type": "list",
+    "elements": [
+      {
+        "description": "上部のストライプ装飾帯",
+        "label": "HEADER_STRIPE",
+        "text": null,
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "スライドのメインタイトル",
+        "label": "SLIDE_TITLE",
+        "text": "自律神経をリセットするリラックス法",
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "タイトル下の区切り線",
+        "label": "TITLE_LINE",
+        "text": null,
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "瞑想する人のアイコン",
+        "label": "CONTENT_ICON",
+        "text": null,
+        "icon_description": "瞑想・座禅をする人のシルエット",
+        "list_index": null
+      },
+      {
+        "description": "音符のアイコン",
+        "label": "CONTENT_ICON",
+        "text": null,
+        "icon_description": "音楽を表す音符マーク",
+        "list_index": null
+      },
+      {
+        "description": "1番目のリスト項目番号",
+        "label": "LIST_NUMBER",
+        "text": "1",
+        "icon_description": null,
+        "list_index": 0
+      },
+      {
+        "description": "1番目のリスト項目見出し",
+        "label": "LIST_HEADING",
+        "text": "腹式呼吸",
+        "icon_description": null,
+        "list_index": 0
+      },
+      {
+        "description": "1番目のリスト項目説明文",
+        "label": "LIST_BODY",
+        "text": "ゆっくり深い呼吸で、副交感神経が活性化します",
+        "icon_description": null,
+        "list_index": 0
+      },
+      {
+        "description": "2番目のリスト項目番号",
+        "label": "LIST_NUMBER",
+        "text": "2",
+        "icon_description": null,
+        "list_index": 1
+      },
+      {
+        "description": "2番目のリスト項目見出し",
+        "label": "LIST_HEADING",
+        "text": "瞑想",
+        "icon_description": null,
+        "list_index": 1
+      },
+      {
+        "description": "2番目のリスト項目説明文",
+        "label": "LIST_BODY",
+        "text": "短時間でも日中の緊張やストレスをリセットできます",
+        "icon_description": null,
+        "list_index": 1
+      },
+      {
+        "description": "3番目のリスト項目番号",
+        "label": "LIST_NUMBER",
+        "text": "3",
+        "icon_description": null,
+        "list_index": 2
+      },
+      {
+        "description": "3番目のリスト項目見出し",
+        "label": "LIST_HEADING",
+        "text": "音楽",
+        "icon_description": null,
+        "list_index": 2
+      },
+      {
+        "description": "3番目のリスト項目説明文",
+        "label": "LIST_BODY",
+        "text": "自然と副交感神経が優位になります",
+        "icon_description": null,
+        "list_index": 2
+      },
+      {
+        "description": "下部まとめバーの背景",
+        "label": "BOTTOM_BAR",
+        "text": null,
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "まとめバー内の電球アイコン",
+        "label": "BOTTOM_TAKEAWAY_ICON",
+        "text": null,
+        "icon_description": "電球のアイコン",
+        "list_index": null
+      },
+      {
+        "description": "下部まとめメッセージ",
+        "label": "BOTTOM_TAKEAWAY",
+        "text": "副交感神経を高める方法を日常に取り入れることが大切です",
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "ページ番号",
+        "label": "PAGE_NUMBER",
+        "text": "7 / 9",
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "下部のストライプ装飾帯",
+        "label": "FOOTER_STRIPE",
+        "text": null,
+        "icon_description": null,
+        "list_index": null
+      }
+    ],
+    "slide_index": 6
+  },
+  {
+    "slide_type": "list",
+    "elements": [
+      {
+        "description": "上部のストライプ装飾帯",
+        "label": "HEADER_STRIPE",
+        "text": null,
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "スライドのメインタイトル",
+        "label": "SLIDE_TITLE",
+        "text": "ぐっすり眠れば、心も仕事も安定",
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "タイトル下の区切り線",
+        "label": "TITLE_LINE",
+        "text": null,
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "1番目のリスト番号",
+        "label": "LIST_NUMBER",
+        "text": "1",
+        "icon_description": null,
+        "list_index": 0
+      },
+      {
+        "description": "1番目のリスト見出し",
+        "label": "LIST_HEADING",
+        "text": "パフォーマンス向上",
+        "icon_description": null,
+        "list_index": 0
+      },
+      {
+        "description": "1番目のリスト説明文",
+        "label": "LIST_BODY",
+        "text": "集中力や判断力が向上し、仕事や学習の効率が大幅に改善されます",
+        "icon_description": null,
+        "list_index": 0
+      },
+      {
+        "description": "2番目のリスト番号",
+        "label": "LIST_NUMBER",
+        "text": "2",
+        "icon_description": null,
+        "list_index": 1
+      },
+      {
+        "description": "2番目のリスト見出し",
+        "label": "LIST_HEADING",
+        "text": "感情の安定",
+        "icon_description": null,
+        "list_index": 1
+      },
+      {
+        "description": "2番目のリスト説明文",
+        "label": "LIST_BODY",
+        "text": "感情のコントロールを助け、ストレスに対する対処能力を高めます",
+        "icon_description": null,
+        "list_index": 1
+      },
+      {
+        "description": "3番目のリスト番号",
+        "label": "LIST_NUMBER",
+        "text": "3",
+        "icon_description": null,
+        "list_index": 2
+      },
+      {
+        "description": "3番目のリスト見出し",
+        "label": "LIST_HEADING",
+        "text": "ストレス耐性UP",
+        "icon_description": null,
+        "list_index": 2
+      },
+      {
+        "description": "3番目のリスト説明文",
+        "label": "LIST_BODY",
+        "text": "日々のプレッシャーにも冷静に対応できるようになります",
+        "icon_description": null,
+        "list_index": 2
+      },
+      {
+        "description": "4番目のリスト番号",
+        "label": "LIST_NUMBER",
+        "text": "4",
+        "icon_description": null,
+        "list_index": 3
+      },
+      {
+        "description": "4番目のリスト見出し",
+        "label": "LIST_HEADING",
+        "text": "日中の充実感",
+        "icon_description": null,
+        "list_index": 3
+      },
+      {
+        "description": "4番目のリスト説明文",
+        "label": "LIST_BODY",
+        "text": "良質な睡眠により活力が増し、一日を通して前向きな気持ちで過ごすことができます",
+        "icon_description": null,
+        "list_index": 3
+      },
+      {
+        "description": "パソコンのイラスト",
+        "label": "CONTENT_ICON",
+        "text": null,
+        "icon_description": "デスクトップパソコン",
+        "list_index": null
+      },
+      {
+        "description": "人物のアクションイラスト",
+        "label": "CONTENT_ICON",
+        "text": null,
+        "icon_description": "エネルギッシュに動く人物",
+        "list_index": null
+      },
+      {
+        "description": "下部まとめバーの背景",
+        "label": "BOTTOM_BAR",
+        "text": null,
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "まとめバー内のアイコン",
+        "label": "BOTTOM_TAKEAWAY_ICON",
+        "text": null,
+        "icon_description": "電球アイコン",
+        "list_index": null
+      },
+      {
+        "description": "下部まとめメッセージ",
+        "label": "BOTTOM_TAKEAWAY",
+        "text": "良質な睡眠がもたらす様々なメリットを実感してみましょう",
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "ページ番号",
+        "label": "PAGE_NUMBER",
+        "text": "8 / 9",
+        "icon_description": null,
+        "list_index": null
+      }
+    ],
+    "slide_index": 7
+  },
+  {
+    "slide_type": "paragraph",
+    "elements": [
+      {
+        "description": "上部のストライプ装飾帯",
+        "label": "HEADER_STRIPE",
+        "text": null,
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "スライドのタイトル",
+        "label": "SLIDE_TITLE",
+        "text": "睡眠を味方に、明日の自分を作ろう",
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "タイトル下の区切り線",
+        "label": "TITLE_LINE",
+        "text": null,
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "ベッドのアイコン",
+        "label": "CONTENT_ICON",
+        "text": null,
+        "icon_description": "ベッド",
+        "list_index": null
+      },
+      {
+        "description": "ロケットのアイコン",
+        "label": "CONTENT_ICON",
+        "text": null,
+        "icon_description": "ロケット",
+        "list_index": null
+      },
+      {
+        "description": "本文テキスト",
+        "label": "BODY_PARAGRAPH",
+        "text": "快眠環境を整えることは明日のより良い自分への投資です。今日から始められる小さな変化が、生活の質を向上させるでしょう。",
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "下部まとめバー",
+        "label": "BOTTOM_BAR",
+        "text": null,
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "電球のアイコン",
+        "label": "BOTTOM_TAKEAWAY_ICON",
+        "text": null,
+        "icon_description": "電球",
+        "list_index": null
+      },
+      {
+        "description": "下部まとめメッセージ",
+        "label": "BOTTOM_TAKEAWAY",
+        "text": "睡眠環境と習慣を整えることで、より良い明日を手に入れましょう",
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "ページ番号",
+        "label": "PAGE_NUMBER",
+        "text": "9 / 9",
+        "icon_description": null,
+        "list_index": null
+      }
+    ],
+    "slide_index": 8
+  },
+  {
+    "slide_type": "paragraph",
+    "elements": [
+      {
+        "description": "スライド全体の水色背景",
+        "label": "BG_FILL",
+        "text": null,
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "上部の斜線ストライプ装飾帯",
+        "label": "HEADER_STRIPE",
+        "text": null,
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "下部の斜線ストライプ装飾帯",
+        "label": "FOOTER_STRIPE",
+        "text": null,
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "右上角のロゴ画像",
+        "label": "LOGO",
+        "text": null,
+        "icon_description": "SANPO-KOKOROのロゴマーク（ペンギンキャラクター）",
+        "list_index": null
+      },
+      {
+        "description": "スライドタイトル",
+        "label": "SLIDE_TITLE",
+        "text": "産業保健サービスのご案内",
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "タイトル下の区切り線",
+        "label": "TITLE_LINE",
+        "text": null,
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "サービス説明の本文テキスト",
+        "label": "BODY_PARAGRAPH",
+        "text": "産業保健こころのオフィスでは産業医・産業保健師のチームによる産業保健活動を行っております。",
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "サービス内容を囲む背景図形",
+        "label": "CONTENT_AREA_BG",
+        "text": null,
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "健康診断のアイコン",
+        "label": "CONTENT_ICON",
+        "text": null,
+        "icon_description": "心電図波形のアイコン",
+        "list_index": null
+      },
+      {
+        "description": "健康診断の見出し",
+        "label": "LIST_HEADING",
+        "text": "健康診断",
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "健康診断の説明文",
+        "label": "LIST_BODY",
+        "text": "結果を確認し就業判定や健康相談に応じます",
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "超過労働のアイコン",
+        "label": "CONTENT_ICON",
+        "text": null,
+        "icon_description": "時計のアイコン",
+        "list_index": null
+      },
+      {
+        "description": "超過労働の見出し",
+        "label": "LIST_HEADING",
+        "text": "超過労働",
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "超過労働の説明文",
+        "label": "LIST_BODY",
+        "text": "面談を行い業務状況の確認や業務への助言を行います",
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "メンタルのアイコン",
+        "label": "CONTENT_ICON",
+        "text": null,
+        "icon_description": "ハートのアイコン",
+        "list_index": null
+      },
+      {
+        "description": "メンタルの見出し",
+        "label": "LIST_HEADING",
+        "text": "メンタル",
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "メンタルの説明文",
+        "label": "LIST_BODY",
+        "text": "ご相談いただき医療の必要性の判断や復職の調整に協力します",
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "左側のペンギンキャラクター",
+        "label": "CONTENT_ICON",
+        "text": null,
+        "icon_description": "青いペンギンキャラクター",
+        "list_index": null
+      },
+      {
+        "description": "右側のペンギンキャラクター",
+        "label": "CONTENT_ICON",
+        "text": null,
+        "icon_description": "蝶ネクタイをした青いペンギンキャラクター",
+        "list_index": null
+      },
+      {
+        "description": "下部メッセージのテキスト",
+        "label": "BOTTOM_TAKEAWAY",
+        "text": "料金などの詳細は、お気軽にお問い合わせください。",
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "メールアドレス",
+        "label": "BOTTOM_TAKEAWAY",
+        "text": "seshita@sanpo-kokoro.com",
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "電話番号",
+        "label": "BOTTOM_TAKEAWAY",
+        "text": "080-4417-7525",
+        "icon_description": null,
+        "list_index": null
+      },
+      {
+        "description": "ウェブサイトURL",
+        "label": "BOTTOM_TAKEAWAY",
+        "text": "https://sanpo-kokoro.com",
+        "icon_description": null,
+        "list_index": null
+      }
+    ],
+    "slide_index": 9
+  }
+]

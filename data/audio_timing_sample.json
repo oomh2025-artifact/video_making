@@ -1,0 +1,15 @@
+{
+    "_comment": "このファイルは audio_timing.json のサンプルです。実際のデータに合わせて audio_timing.json にリネームしてください。",
+    "slides": [
+        {"slide_index": 0, "audio_file": "slide_01.wav", "duration_sec": 5.0},
+        {"slide_index": 1, "audio_file": "slide_02.wav", "duration_sec": 12.0},
+        {"slide_index": 2, "audio_file": "slide_03.wav", "duration_sec": 15.0},
+        {"slide_index": 3, "audio_file": "slide_04.wav", "duration_sec": 12.0},
+        {"slide_index": 4, "audio_file": "slide_05.wav", "duration_sec": 10.0},
+        {"slide_index": 5, "audio_file": "slide_06.wav", "duration_sec": 10.0},
+        {"slide_index": 6, "audio_file": "slide_07.wav", "duration_sec": 12.0},
+        {"slide_index": 7, "audio_file": "slide_08.wav", "duration_sec": 15.0},
+        {"slide_index": 8, "audio_file": "slide_09.wav", "duration_sec": 10.0},
+        {"slide_index": 9, "audio_file": "slide_10.wav", "duration_sec": 3.0}
+    ]
+}

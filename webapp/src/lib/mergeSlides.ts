@@ -1,0 +1,202 @@
+/**
+ * 全体マージ処理: RawShapesData → SlidesData 生成
+ * Python版 merge_and_assign.py の main() 移植
+ */
+import type {
+  RawShapesData, RawShape, SlidesData, Slide, SlideElement,
+  SlideType, ElementLabel, AnyLabel,
+} from "../types/slides";
+import type { TimingEntry } from "./timingParser";
+import { inferSlideType, labelShape } from "./labeler";
+import { ANIMATION_RULES, isBackgroundLabel, calculateDelays } from "./animationAssigner";
+
+const OUTPUT_WIDTH = 1920;
+const OUTPUT_HEIGHT = 1080;
+
+/** スライドduration決定 */
+function getSlideDuration(
+  slideIndex: number,
+  timingEntries: TimingEntry[],
+  elements: SlideElement[],
+  slideType: SlideType
+): number {
+  const entry = timingEntries.find((t) => t.slideIndex === slideIndex);
+  if (entry) return entry.durationSec;
+  return calculateFallbackDuration(elements, slideType);
+}
+
+function calculateFallbackDuration(elements: SlideElement[], slideType: SlideType): number {
+  if (slideType === "cover") return 5.0;
+  if (slideType === "end") return 4.0;
+  if (slideType === "list") {
+    const listCount = elements.filter((e) => e.label === "LIST_NUMBER").length;
+    return 3.0 + listCount * 1.5 + 2.0;
+  }
+  if (slideType === "paragraph") {
+    const totalChars = elements.reduce((sum, e) => sum + (e.text?.length || 0), 0);
+    return Math.max(6.0, 3.0 + (totalChars / 100) * 2.0 + 2.0);
+  }
+  return 8.0;
+}
+
+/** シェイプをslides.json用のelement形式に変換 */
+function shapeToElement(
+  shape: RawShape,
+  label: AnyLabel,
+  slideIndex: number,
+  elIndex: number
+): SlideElement | null {
+  const rule = ANIMATION_RULES[label];
+  if (rule === null || rule === undefined) return null;
+
+  // タイプ判定
+  let elType: "text" | "richText" | "icon" | "image" = "text";
+  if (shape.is_picture) {
+    elType = "icon";
+  } else if (shape.text_runs && shape.text_runs.length > 2) {
+    const colors = new Set<string>();
+    const bolds = new Set<boolean>();
+    for (const r of shape.text_runs) {
+      if (r.text === "\n") continue;
+      if (r.font_color) colors.add(r.font_color);
+      bolds.add(r.bold);
+    }
+    if (colors.size > 1 || bolds.size > 1) elType = "richText";
+  }
+
+  const element: SlideElement = {
+    id: `s${String(slideIndex + 1).padStart(2, "0")}_el_${String(elIndex + 1).padStart(2, "0")}`,
+    label: label as ElementLabel,
+    type: elType,
+    x: shape.x,
+    y: shape.y,
+    w: shape.w,
+    h: shape.h,
+    animation: {
+      type: rule.type,
+      delay: rule.delay ?? 0,
+      duration: rule.duration,
+    },
+  };
+
+  if (shape.has_text && shape.text) {
+    element.text = shape.text;
+  }
+
+  // フォントスタイル
+  if (shape.text_runs) {
+    const runs = shape.text_runs.filter((r) => r.text !== "\n");
+    if (runs.length > 0) {
+      const sizes = runs.map((r) => r.font_size_pt).filter((s): s is number => s !== null);
+      element.fontSize = sizes.length > 0 ? Math.max(...sizes) : 16;
+      const colors = runs.map((r) => r.font_color).filter((c): c is string => c !== null);
+      element.fontColor = colors[0] || "#333333";
+      element.fontWeight = runs.some((r) => r.bold) ? "bold" : "normal";
+      element.lineHeight = 1.5;
+    }
+  }
+
+  // richText spans
+  if (elType === "richText" && shape.text_runs) {
+    element.spans = shape.text_runs.map((r) => {
+      const span: { text: string; color?: string; bold?: boolean } = { text: r.text };
+      if (r.font_color) span.color = r.font_color;
+      if (r.bold) span.bold = true;
+      return span;
+    });
+  }
+
+  // アイコン
+  if (shape.is_picture) {
+    element.type = "icon";
+    if (shape.image_filename) {
+      element.iconSrc = `icons/${shape.image_filename}`;
+    }
+    delete element.text;
+    delete element.fontSize;
+    delete element.fontColor;
+    delete element.fontWeight;
+    delete element.lineHeight;
+    delete element.spans;
+  }
+
+  return element;
+}
+
+/** メイン処理: RawShapesDataからSlidesDataを生成 */
+export function mergeAndAssign(
+  rawData: RawShapesData,
+  timingEntries: TimingEntry[],
+  narrations: string[]
+): SlidesData {
+  const slidesOutput: Slide[] = [];
+
+  for (const rawSlide of rawData.slides) {
+    const si = rawSlide.slide_index;
+    const shapes = rawSlide.shapes;
+
+    // スライドタイプ推定
+    const slideType = inferSlideType(shapes, si);
+    const slideHasList = slideType === "list";
+
+    // 各シェイプにラベル付与
+    const labeledShapes: [RawShape, AnyLabel][] = [];
+    for (const shape of shapes) {
+      const label = labelShape(shape, si, slideHasList, slideType);
+      labeledShapes.push([shape, label]);
+    }
+
+    // elementに変換（背景層は除外）
+    const elements: SlideElement[] = [];
+    let elIdx = 0;
+    for (const [shape, label] of labeledShapes) {
+      const el = shapeToElement(shape, label, si, elIdx);
+      if (el) {
+        elements.push(el);
+        elIdx++;
+      }
+    }
+
+    // duration決定
+    const duration = getSlideDuration(si, timingEntries, elements, slideType);
+
+    // delay動的計算
+    calculateDelays(elements, slideType, duration);
+
+    // BOTTOM_TAKEAWAY テキストの位置をアイコン分ずらす
+    const takeawayIcon = elements.find((e) => e.label === "BOTTOM_TAKEAWAY_ICON");
+    if (takeawayIcon) {
+      const iconRight = takeawayIcon.x + takeawayIcon.w + 10;
+      for (const e of elements) {
+        if (e.label === "BOTTOM_TAKEAWAY" && e.text && e.x < iconRight) {
+          const oldX = e.x;
+          e.x = iconRight;
+          e.w = e.w - (iconRight - oldX);
+        }
+      }
+    }
+
+    // ナレーション追加（あれば）
+    const narration = narrations[si] || undefined;
+
+    slidesOutput.push({
+      slide_index: si,
+      slide_type: slideType,
+      duration: Math.round(duration * 100) / 100,
+      background: { src: `slides/slide_${String(si + 1).padStart(2, "0")}_bg.png` },
+      audio: null,
+      elements,
+    });
+  }
+
+  return {
+    meta: {
+      source_file: rawData.source_file,
+      total_slides: slidesOutput.length,
+      output_width: OUTPUT_WIDTH,
+      output_height: OUTPUT_HEIGHT,
+      fps: 30,
+    },
+    slides: slidesOutput,
+  };
+}

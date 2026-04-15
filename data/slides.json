@@ -1,0 +1,1925 @@
+{
+  "meta": {
+    "source_file": "input.pptx",
+    "total_slides": 10,
+    "output_width": 1920,
+    "output_height": 1080,
+    "fps": 30
+  },
+  "slides": [
+    {
+      "slide_index": 0,
+      "slide_type": "cover",
+      "duration": 21.74,
+      "background": {
+        "src": "slides/slide_01_bg.png"
+      },
+      "audio": {
+        "src": "audio/slide_01.wav",
+        "duration_sec": 21.74,
+        "offset_sec": 0
+      },
+      "elements": [
+        {
+          "id": "s01_el_01",
+          "label": "COVER_TITLE",
+          "type": "text",
+          "x": 154,
+          "y": 307,
+          "w": 1536,
+          "h": 269,
+          "animation": {
+            "type": "fadeIn",
+            "delay": 0.0,
+            "duration": 0.6
+          },
+          "text": "快眠習慣で\n毎日のパフォーマンスを変える",
+          "fontSize": 40.0,
+          "fontColor": "#333333",
+          "fontWeight": "bold",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s01_el_02",
+          "label": "PAGE_NUMBER",
+          "type": "text",
+          "x": 1613,
+          "y": 989,
+          "w": 230,
+          "h": 58,
+          "animation": {
+            "type": "fadeIn",
+            "delay": 0.0,
+            "duration": 0.2
+          },
+          "text": "1 / 9",
+          "fontSize": 9.0,
+          "fontColor": "#333333",
+          "fontWeight": "normal",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s01_el_03",
+          "label": "LOGO",
+          "type": "icon",
+          "x": 1447,
+          "y": 812,
+          "w": 378,
+          "h": 144,
+          "animation": {
+            "type": "fadeIn",
+            "delay": 1.0,
+            "duration": 0.5
+          },
+          "iconSrc": "icons/slide_01_Picture_10.png"
+        }
+      ]
+    },
+    {
+      "slide_index": 1,
+      "slide_type": "paragraph",
+      "duration": 33.29,
+      "background": {
+        "src": "slides/slide_02_bg.png"
+      },
+      "audio": {
+        "src": "audio/slide_02.wav",
+        "duration_sec": 33.29,
+        "offset_sec": 0
+      },
+      "elements": [
+        {
+          "id": "s02_el_01",
+          "label": "SLIDE_TITLE",
+          "type": "text",
+          "x": 134,
+          "y": 58,
+          "w": 1459,
+          "h": 125,
+          "animation": {
+            "type": "fadeIn",
+            "delay": 0.0,
+            "duration": 0.4
+          },
+          "text": "4割が睡眠不足！",
+          "fontSize": 26.0,
+          "fontColor": "#333333",
+          "fontWeight": "bold",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s02_el_02",
+          "label": "PAGE_NUMBER",
+          "type": "text",
+          "x": 1613,
+          "y": 989,
+          "w": 230,
+          "h": 58,
+          "animation": {
+            "type": "fadeIn",
+            "delay": 0.0,
+            "duration": 0.2
+          },
+          "text": "2 / 9",
+          "fontSize": 9.0,
+          "fontColor": "#333333",
+          "fontWeight": "normal",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s02_el_03",
+          "label": "BODY_PARAGRAPH",
+          "type": "text",
+          "x": 826,
+          "y": 315,
+          "w": 1029,
+          "h": 377,
+          "animation": {
+            "type": "fadeIn",
+            "delay": 1.0,
+            "duration": 0.6
+          },
+          "text": "厚生労働省は\n「睡眠は6時間以上が望ましい」としていますが、\n日本人の約4割は\nこの基準を満たしていません。",
+          "fontSize": 24.0,
+          "fontColor": "#333333",
+          "fontWeight": "normal",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s02_el_04",
+          "label": "SOURCE_CITATION",
+          "type": "text",
+          "x": 826,
+          "y": 742,
+          "w": 960,
+          "h": 67,
+          "animation": {
+            "type": "fadeIn",
+            "delay": 2.1,
+            "duration": 0.3
+          },
+          "text": "出典：厚生労働省　健康づくりのための睡眠ガイド2023、生活習慣調査の結果",
+          "fontSize": 9.0,
+          "fontColor": "#333333",
+          "fontWeight": "normal",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s02_el_05",
+          "label": "BOTTOM_TAKEAWAY_ICON",
+          "type": "icon",
+          "x": 402,
+          "y": 878,
+          "w": 58,
+          "h": 58,
+          "animation": {
+            "type": "scaleIn",
+            "delay": 26.04,
+            "duration": 0.3
+          },
+          "iconSrc": "icons/slide_02_Image_2.png"
+        },
+        {
+          "id": "s02_el_06",
+          "label": "BOTTOM_TAKEAWAY",
+          "type": "text",
+          "x": 470,
+          "y": 854,
+          "w": 1297,
+          "h": 106,
+          "animation": {
+            "type": "slideInBottom",
+            "delay": 26.04,
+            "duration": 0.5
+          },
+          "text": "多くの人が睡眠不足に陥っている現状を理解しましょう",
+          "fontSize": 16.0,
+          "fontColor": "#333333",
+          "fontWeight": "normal",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s02_el_07",
+          "label": "CONTENT_ICON",
+          "type": "icon",
+          "x": 136,
+          "y": 543,
+          "w": 148,
+          "h": 148,
+          "animation": {
+            "type": "scaleIn",
+            "delay": 0.0,
+            "duration": 0.4
+          },
+          "iconSrc": "icons/slide_02_グラフィックス_20.png"
+        },
+        {
+          "id": "s02_el_08",
+          "label": "CONTENT_ICON",
+          "type": "icon",
+          "x": 247,
+          "y": 542,
+          "w": 148,
+          "h": 148,
+          "animation": {
+            "type": "scaleIn",
+            "delay": 0.0,
+            "duration": 0.4
+          },
+          "iconSrc": "icons/slide_02_グラフィックス_22.png"
+        },
+        {
+          "id": "s02_el_09",
+          "label": "CONTENT_ICON",
+          "type": "icon",
+          "x": 356,
+          "y": 544,
+          "w": 148,
+          "h": 148,
+          "animation": {
+            "type": "scaleIn",
+            "delay": 0.0,
+            "duration": 0.4
+          },
+          "iconSrc": "icons/slide_02_グラフィックス_23.png"
+        },
+        {
+          "id": "s02_el_10",
+          "label": "CONTENT_ICON",
+          "type": "icon",
+          "x": 469,
+          "y": 546,
+          "w": 148,
+          "h": 148,
+          "animation": {
+            "type": "scaleIn",
+            "delay": 0.0,
+            "duration": 0.4
+          },
+          "iconSrc": "icons/slide_02_グラフィックス_24.png"
+        },
+        {
+          "id": "s02_el_11",
+          "label": "CONTENT_ICON",
+          "type": "icon",
+          "x": 580,
+          "y": 547,
+          "w": 148,
+          "h": 148,
+          "animation": {
+            "type": "scaleIn",
+            "delay": 0.0,
+            "duration": 0.4
+          },
+          "iconSrc": "icons/slide_02_グラフィックス_25.png"
+        },
+        {
+          "id": "s02_el_12",
+          "label": "CONTENT_ICON",
+          "type": "icon",
+          "x": 178,
+          "y": 351,
+          "w": 177,
+          "h": 177,
+          "animation": {
+            "type": "scaleIn",
+            "delay": 0.0,
+            "duration": 0.4
+          },
+          "iconSrc": "icons/slide_02_Graphic_19.png"
+        }
+      ]
+    },
+    {
+      "slide_index": 2,
+      "slide_type": "list",
+      "duration": 42.25,
+      "background": {
+        "src": "slides/slide_03_bg.png"
+      },
+      "audio": {
+        "src": "audio/slide_03.wav",
+        "duration_sec": 42.25,
+        "offset_sec": 0
+      },
+      "elements": [
+        {
+          "id": "s03_el_01",
+          "label": "SLIDE_TITLE",
+          "type": "text",
+          "x": 134,
+          "y": 58,
+          "w": 1459,
+          "h": 125,
+          "animation": {
+            "type": "fadeIn",
+            "delay": 0.0,
+            "duration": 0.4
+          },
+          "text": "これって「睡眠不足」かも？",
+          "fontSize": 26.0,
+          "fontColor": "#333333",
+          "fontWeight": "bold",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s03_el_02",
+          "label": "LIST_NUMBER",
+          "type": "text",
+          "x": 1613,
+          "y": 989,
+          "w": 230,
+          "h": 58,
+          "animation": {
+            "type": "scaleIn",
+            "delay": 5.8,
+            "duration": 0.3
+          },
+          "text": "3 / 9",
+          "fontSize": 9.0,
+          "fontColor": "#333333",
+          "fontWeight": "normal",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s03_el_03",
+          "label": "LIST_NUMBER",
+          "type": "text",
+          "x": 461,
+          "y": 236,
+          "w": 61,
+          "h": 61,
+          "animation": {
+            "type": "scaleIn",
+            "delay": 1.0,
+            "duration": 0.3
+          },
+          "text": "1",
+          "fontSize": 11.0,
+          "fontColor": "#333333",
+          "fontWeight": "bold",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s03_el_04",
+          "label": "LIST_HEADING",
+          "type": "text",
+          "x": 557,
+          "y": 221,
+          "w": 1171,
+          "h": 67,
+          "animation": {
+            "type": "slideInLeft",
+            "delay": 1.0,
+            "duration": 0.4
+          },
+          "text": "集中力低下",
+          "fontSize": 24.0,
+          "fontColor": "#333333",
+          "fontWeight": "bold",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s03_el_05",
+          "label": "LIST_BODY",
+          "type": "text",
+          "x": 557,
+          "y": 291,
+          "w": 1171,
+          "h": 67,
+          "animation": {
+            "type": "fadeIn",
+            "delay": 1.3,
+            "duration": 0.4
+          },
+          "text": "仕事や勉強に集中できない状態が続いている場合は\n睡眠時間が不足している可能性があります",
+          "fontSize": 14.0,
+          "fontColor": "#333333",
+          "fontWeight": "normal",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s03_el_06",
+          "label": "LIST_NUMBER",
+          "type": "text",
+          "x": 461,
+          "y": 385,
+          "w": 61,
+          "h": 61,
+          "animation": {
+            "type": "scaleIn",
+            "delay": 2.2,
+            "duration": 0.3
+          },
+          "text": "2",
+          "fontSize": 11.0,
+          "fontColor": "#333333",
+          "fontWeight": "bold",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s03_el_07",
+          "label": "LIST_HEADING",
+          "type": "text",
+          "x": 557,
+          "y": 377,
+          "w": 1171,
+          "h": 67,
+          "animation": {
+            "type": "slideInLeft",
+            "delay": 2.2,
+            "duration": 0.4
+          },
+          "text": "感情の不安定さ",
+          "fontSize": 24.0,
+          "fontColor": "#333333",
+          "fontWeight": "bold",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s03_el_08",
+          "label": "LIST_BODY",
+          "type": "text",
+          "x": 557,
+          "y": 455,
+          "w": 1171,
+          "h": 67,
+          "animation": {
+            "type": "fadeIn",
+            "delay": 2.5,
+            "duration": 0.4
+          },
+          "text": "些細なことでイライラしたり、\n感情のコントロールが難しくなっている状態です",
+          "fontSize": 14.0,
+          "fontColor": "#333333",
+          "fontWeight": "normal",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s03_el_09",
+          "label": "LIST_NUMBER",
+          "type": "text",
+          "x": 461,
+          "y": 534,
+          "w": 61,
+          "h": 61,
+          "animation": {
+            "type": "scaleIn",
+            "delay": 3.4,
+            "duration": 0.3
+          },
+          "text": "3",
+          "fontSize": 11.0,
+          "fontColor": "#333333",
+          "fontWeight": "bold",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s03_el_10",
+          "label": "LIST_HEADING",
+          "type": "text",
+          "x": 557,
+          "y": 538,
+          "w": 1171,
+          "h": 67,
+          "animation": {
+            "type": "slideInLeft",
+            "delay": 3.4,
+            "duration": 0.4
+          },
+          "text": "疲労の蓄積",
+          "fontSize": 24.0,
+          "fontColor": "#333333",
+          "fontWeight": "bold",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s03_el_11",
+          "label": "LIST_BODY",
+          "type": "text",
+          "x": 557,
+          "y": 610,
+          "w": 1171,
+          "h": 67,
+          "animation": {
+            "type": "fadeIn",
+            "delay": 3.6999999999999997,
+            "duration": 0.4
+          },
+          "text": "十分に休んでいるはずなのに疲れが取れない、\nだるさが続く症状です",
+          "fontSize": 14.0,
+          "fontColor": "#333333",
+          "fontWeight": "normal",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s03_el_12",
+          "label": "LIST_NUMBER",
+          "type": "text",
+          "x": 461,
+          "y": 683,
+          "w": 61,
+          "h": 61,
+          "animation": {
+            "type": "scaleIn",
+            "delay": 4.6,
+            "duration": 0.3
+          },
+          "text": "4",
+          "fontSize": 11.0,
+          "fontColor": "#333333",
+          "fontWeight": "bold",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s03_el_13",
+          "label": "LIST_HEADING",
+          "type": "text",
+          "x": 557,
+          "y": 691,
+          "w": 1171,
+          "h": 67,
+          "animation": {
+            "type": "slideInLeft",
+            "delay": 4.6,
+            "duration": 0.4
+          },
+          "text": "やる気の低下",
+          "fontSize": 24.0,
+          "fontColor": "#333333",
+          "fontWeight": "bold",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s03_el_14",
+          "label": "LIST_BODY",
+          "type": "text",
+          "x": 557,
+          "y": 773,
+          "w": 1171,
+          "h": 67,
+          "animation": {
+            "type": "fadeIn",
+            "delay": 4.8999999999999995,
+            "duration": 0.4
+          },
+          "text": "モチベーションが上がらず、\n普段楽しいと感じることにも興味を持てない状態が続いています",
+          "fontSize": 14.0,
+          "fontColor": "#333333",
+          "fontWeight": "normal",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s03_el_15",
+          "label": "BOTTOM_TAKEAWAY_ICON",
+          "type": "icon",
+          "x": 325,
+          "y": 877,
+          "w": 58,
+          "h": 58,
+          "animation": {
+            "type": "scaleIn",
+            "delay": 34.0,
+            "duration": 0.3
+          },
+          "iconSrc": "icons/slide_03_Image_4.png"
+        },
+        {
+          "id": "s03_el_16",
+          "label": "BOTTOM_TAKEAWAY",
+          "type": "text",
+          "x": 393,
+          "y": 854,
+          "w": 1374,
+          "h": 106,
+          "animation": {
+            "type": "slideInBottom",
+            "delay": 34.0,
+            "duration": 0.5
+          },
+          "text": "これらの症状に心当たりがある場合は、睡眠不足かもしれません",
+          "fontSize": 16.0,
+          "fontColor": "#333333",
+          "fontWeight": "normal",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s03_el_17",
+          "label": "CONTENT_ICON",
+          "type": "icon",
+          "x": 229,
+          "y": 522,
+          "w": 192,
+          "h": 192,
+          "animation": {
+            "type": "scaleIn",
+            "delay": 0.0,
+            "duration": 0.4
+          },
+          "iconSrc": "icons/slide_03_グラフィックス_38.png"
+        },
+        {
+          "id": "s03_el_18",
+          "label": "CONTENT_ICON",
+          "type": "icon",
+          "x": 116,
+          "y": 385,
+          "w": 192,
+          "h": 192,
+          "animation": {
+            "type": "scaleIn",
+            "delay": 0.0,
+            "duration": 0.4
+          },
+          "iconSrc": "icons/slide_03_グラフィックス_40.png"
+        }
+      ]
+    },
+    {
+      "slide_index": 3,
+      "slide_type": "paragraph",
+      "duration": 37.18,
+      "background": {
+        "src": "slides/slide_04_bg.png"
+      },
+      "audio": {
+        "src": "audio/slide_04.wav",
+        "duration_sec": 37.18,
+        "offset_sec": 0
+      },
+      "elements": [
+        {
+          "id": "s04_el_01",
+          "label": "SLIDE_TITLE",
+          "type": "text",
+          "x": 134,
+          "y": 58,
+          "w": 1459,
+          "h": 125,
+          "animation": {
+            "type": "fadeIn",
+            "delay": 0.0,
+            "duration": 0.4
+          },
+          "text": "快眠のカギは自律神経",
+          "fontSize": 26.0,
+          "fontColor": "#333333",
+          "fontWeight": "bold",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s04_el_02",
+          "label": "PAGE_NUMBER",
+          "type": "text",
+          "x": 1613,
+          "y": 989,
+          "w": 230,
+          "h": 58,
+          "animation": {
+            "type": "fadeIn",
+            "delay": 0.0,
+            "duration": 0.2
+          },
+          "text": "4 / 9",
+          "fontSize": 9.0,
+          "fontColor": "#333333",
+          "fontWeight": "normal",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s04_el_03",
+          "label": "BODY_PARAGRAPH",
+          "type": "text",
+          "x": 518,
+          "y": 221,
+          "w": 1210,
+          "h": 595,
+          "animation": {
+            "type": "fadeIn",
+            "delay": 1.0,
+            "duration": 0.6
+          },
+          "text": "交感神経　→朝に体を活発\n副交感神経→夜に体をリラックス\n\n質の良い睡眠のためには、\n寝る前に副交感神経を高めることが\n重要です。",
+          "fontSize": 24.0,
+          "fontColor": "#333333",
+          "fontWeight": "normal",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s04_el_04",
+          "label": "BOTTOM_TAKEAWAY_ICON",
+          "type": "icon",
+          "x": 396,
+          "y": 878,
+          "w": 58,
+          "h": 58,
+          "animation": {
+            "type": "scaleIn",
+            "delay": 29.93,
+            "duration": 0.3
+          },
+          "iconSrc": "icons/slide_04_Image_4.png"
+        },
+        {
+          "id": "s04_el_05",
+          "label": "BOTTOM_TAKEAWAY",
+          "type": "text",
+          "x": 464,
+          "y": 854,
+          "w": 1303,
+          "h": 106,
+          "animation": {
+            "type": "slideInBottom",
+            "delay": 29.93,
+            "duration": 0.5
+          },
+          "text": "寝る前は副交感神経の働きを高めることがポイントです",
+          "fontSize": 16.0,
+          "fontColor": "#333333",
+          "fontWeight": "normal",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s04_el_06",
+          "label": "CONTENT_ICON",
+          "type": "icon",
+          "x": 154,
+          "y": 255,
+          "w": 192,
+          "h": 192,
+          "animation": {
+            "type": "scaleIn",
+            "delay": 0.0,
+            "duration": 0.4
+          },
+          "iconSrc": "icons/slide_04_グラフィックス_19.png"
+        },
+        {
+          "id": "s04_el_07",
+          "label": "CONTENT_ICON",
+          "type": "icon",
+          "x": 154,
+          "y": 545,
+          "w": 192,
+          "h": 192,
+          "animation": {
+            "type": "scaleIn",
+            "delay": 0.0,
+            "duration": 0.4
+          },
+          "iconSrc": "icons/slide_04_グラフィックス_21.png"
+        }
+      ]
+    },
+    {
+      "slide_index": 4,
+      "slide_type": "list",
+      "duration": 48.62,
+      "background": {
+        "src": "slides/slide_05_bg.png"
+      },
+      "audio": {
+        "src": "audio/slide_05.wav",
+        "duration_sec": 48.62,
+        "offset_sec": 0
+      },
+      "elements": [
+        {
+          "id": "s05_el_01",
+          "label": "SLIDE_TITLE",
+          "type": "text",
+          "x": 134,
+          "y": 58,
+          "w": 1459,
+          "h": 125,
+          "animation": {
+            "type": "fadeIn",
+            "delay": 0.0,
+            "duration": 0.4
+          },
+          "text": "眠りを整えるちょっとした工夫",
+          "fontSize": 26.0,
+          "fontColor": "#333333",
+          "fontWeight": "bold",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s05_el_02",
+          "label": "PAGE_NUMBER",
+          "type": "text",
+          "x": 1613,
+          "y": 989,
+          "w": 230,
+          "h": 58,
+          "animation": {
+            "type": "fadeIn",
+            "delay": 0.0,
+            "duration": 0.2
+          },
+          "text": "5 / 9",
+          "fontSize": 9.0,
+          "fontColor": "#333333",
+          "fontWeight": "normal",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s05_el_03",
+          "label": "LIST_NUMBER",
+          "type": "text",
+          "x": 461,
+          "y": 371,
+          "w": 61,
+          "h": 61,
+          "animation": {
+            "type": "scaleIn",
+            "delay": 1.0,
+            "duration": 0.3
+          },
+          "text": "1",
+          "fontSize": 11.0,
+          "fontColor": "#333333",
+          "fontWeight": "bold",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s05_el_04",
+          "label": "LIST_HEADING",
+          "type": "text",
+          "x": 557,
+          "y": 355,
+          "w": 1171,
+          "h": 67,
+          "animation": {
+            "type": "slideInLeft",
+            "delay": 1.0,
+            "duration": 0.4
+          },
+          "text": "起床時間を一定に",
+          "fontSize": 24.0,
+          "fontColor": "#333333",
+          "fontWeight": "bold",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s05_el_05",
+          "label": "LIST_BODY",
+          "type": "text",
+          "x": 557,
+          "y": 428,
+          "w": 1171,
+          "h": 67,
+          "animation": {
+            "type": "fadeIn",
+            "delay": 1.3,
+            "duration": 0.4
+          },
+          "text": "体内時計を整え、自然な眠気を促すリズムを作ることができます",
+          "fontSize": 14.0,
+          "fontColor": "#333333",
+          "fontWeight": "normal",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s05_el_06",
+          "label": "LIST_NUMBER",
+          "type": "text",
+          "x": 461,
+          "y": 534,
+          "w": 61,
+          "h": 61,
+          "animation": {
+            "type": "scaleIn",
+            "delay": 2.2,
+            "duration": 0.3
+          },
+          "text": "2",
+          "fontSize": 11.0,
+          "fontColor": "#333333",
+          "fontWeight": "bold",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s05_el_07",
+          "label": "LIST_HEADING",
+          "type": "text",
+          "x": 557,
+          "y": 529,
+          "w": 1171,
+          "h": 67,
+          "animation": {
+            "type": "slideInLeft",
+            "delay": 2.2,
+            "duration": 0.4
+          },
+          "text": "カフェイン・スマホの使い方見直し",
+          "fontSize": 24.0,
+          "fontColor": "#333333",
+          "fontWeight": "bold",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s05_el_08",
+          "label": "LIST_BODY",
+          "type": "text",
+          "x": 557,
+          "y": 624,
+          "w": 1171,
+          "h": 67,
+          "animation": {
+            "type": "fadeIn",
+            "delay": 2.5,
+            "duration": 0.4
+          },
+          "text": "夕方以降のカフェイン・就寝前のスマホは睡眠の質を低下させます",
+          "fontSize": 14.0,
+          "fontColor": "#333333",
+          "fontWeight": "normal",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s05_el_09",
+          "label": "BOTTOM_TAKEAWAY_ICON",
+          "type": "icon",
+          "x": 418,
+          "y": 878,
+          "w": 58,
+          "h": 58,
+          "animation": {
+            "type": "scaleIn",
+            "delay": 41.62,
+            "duration": 0.3
+          },
+          "iconSrc": "icons/slide_05_Image_4.png"
+        },
+        {
+          "id": "s05_el_10",
+          "label": "BOTTOM_TAKEAWAY",
+          "type": "text",
+          "x": 486,
+          "y": 854,
+          "w": 1281,
+          "h": 106,
+          "animation": {
+            "type": "slideInBottom",
+            "delay": 41.62,
+            "duration": 0.5
+          },
+          "text": "日常の小さな習慣を変えることから始めてみましょう",
+          "fontSize": 16.0,
+          "fontColor": "#333333",
+          "fontWeight": "normal",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s05_el_11",
+          "label": "CONTENT_ICON",
+          "type": "icon",
+          "x": 156,
+          "y": 300,
+          "w": 192,
+          "h": 192,
+          "animation": {
+            "type": "scaleIn",
+            "delay": 0.0,
+            "duration": 0.4
+          },
+          "iconSrc": "icons/slide_05_グラフィックス_26.png"
+        },
+        {
+          "id": "s05_el_12",
+          "label": "CONTENT_ICON",
+          "type": "icon",
+          "x": 156,
+          "y": 507,
+          "w": 192,
+          "h": 192,
+          "animation": {
+            "type": "scaleIn",
+            "delay": 0.0,
+            "duration": 0.4
+          },
+          "iconSrc": "icons/slide_05_グラフィックス_28.png"
+        }
+      ]
+    },
+    {
+      "slide_index": 5,
+      "slide_type": "paragraph",
+      "duration": 30.62,
+      "background": {
+        "src": "slides/slide_06_bg.png"
+      },
+      "audio": {
+        "src": "audio/slide_06.wav",
+        "duration_sec": 30.62,
+        "offset_sec": 0
+      },
+      "elements": [
+        {
+          "id": "s06_el_01",
+          "label": "SLIDE_TITLE",
+          "type": "text",
+          "x": 134,
+          "y": 58,
+          "w": 1459,
+          "h": 125,
+          "animation": {
+            "type": "fadeIn",
+            "delay": 0.0,
+            "duration": 0.4
+          },
+          "text": "軽い運動が、深い眠りを呼び込む",
+          "fontSize": 26.0,
+          "fontColor": "#333333",
+          "fontWeight": "bold",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s06_el_02",
+          "label": "PAGE_NUMBER",
+          "type": "text",
+          "x": 1613,
+          "y": 989,
+          "w": 230,
+          "h": 58,
+          "animation": {
+            "type": "fadeIn",
+            "delay": 0.0,
+            "duration": 0.2
+          },
+          "text": "6 / 9",
+          "fontSize": 9.0,
+          "fontColor": "#333333",
+          "fontWeight": "normal",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s06_el_03",
+          "label": "BODY_PARAGRAPH",
+          "type": "text",
+          "x": 518,
+          "y": 221,
+          "w": 1267,
+          "h": 595,
+          "animation": {
+            "type": "fadeIn",
+            "delay": 1.0,
+            "duration": 0.6
+          },
+          "text": "日中にウォーキングやストレッチなどを\n行うことで、\n夜により深い眠りを得ることができます。",
+          "fontSize": 24.0,
+          "fontColor": "#333333",
+          "fontWeight": "normal",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s06_el_04",
+          "label": "BOTTOM_TAKEAWAY_ICON",
+          "type": "icon",
+          "x": 300,
+          "y": 878,
+          "w": 58,
+          "h": 58,
+          "animation": {
+            "type": "scaleIn",
+            "delay": 22.12,
+            "duration": 0.3
+          },
+          "iconSrc": "icons/slide_06_Image_4.png"
+        },
+        {
+          "id": "s06_el_05",
+          "label": "BOTTOM_TAKEAWAY",
+          "type": "text",
+          "x": 368,
+          "y": 854,
+          "w": 1399,
+          "h": 106,
+          "animation": {
+            "type": "slideInBottom",
+            "delay": 22.12,
+            "duration": 0.5
+          },
+          "text": "息が上がらない程度の軽い運動を取り入れることを心がけましょう",
+          "fontSize": 16.0,
+          "fontColor": "#333333",
+          "fontWeight": "normal",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s06_el_06",
+          "label": "CONTENT_ICON",
+          "type": "icon",
+          "x": 212,
+          "y": 568,
+          "w": 192,
+          "h": 192,
+          "animation": {
+            "type": "scaleIn",
+            "delay": 0.0,
+            "duration": 0.4
+          },
+          "iconSrc": "icons/slide_06_グラフィックス_21.png"
+        },
+        {
+          "id": "s06_el_07",
+          "label": "CONTENT_ICON",
+          "type": "icon",
+          "x": 213,
+          "y": 340,
+          "w": 192,
+          "h": 192,
+          "animation": {
+            "type": "scaleIn",
+            "delay": 0.0,
+            "duration": 0.4
+          },
+          "iconSrc": "icons/slide_06_グラフィックス_23.png"
+        }
+      ]
+    },
+    {
+      "slide_index": 6,
+      "slide_type": "list",
+      "duration": 38.4,
+      "background": {
+        "src": "slides/slide_07_bg.png"
+      },
+      "audio": {
+        "src": "audio/slide_07.wav",
+        "duration_sec": 38.4,
+        "offset_sec": 0
+      },
+      "elements": [
+        {
+          "id": "s07_el_01",
+          "label": "SLIDE_TITLE",
+          "type": "text",
+          "x": 134,
+          "y": 58,
+          "w": 1459,
+          "h": 125,
+          "animation": {
+            "type": "fadeIn",
+            "delay": 0.0,
+            "duration": 0.4
+          },
+          "text": "自律神経をリセットするリラックス法",
+          "fontSize": 26.0,
+          "fontColor": "#333333",
+          "fontWeight": "bold",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s07_el_02",
+          "label": "PAGE_NUMBER",
+          "type": "text",
+          "x": 1613,
+          "y": 989,
+          "w": 230,
+          "h": 58,
+          "animation": {
+            "type": "fadeIn",
+            "delay": 0.0,
+            "duration": 0.2
+          },
+          "text": "7 / 9",
+          "fontSize": 9.0,
+          "fontColor": "#333333",
+          "fontWeight": "normal",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s07_el_03",
+          "label": "LIST_NUMBER",
+          "type": "text",
+          "x": 461,
+          "y": 289,
+          "w": 61,
+          "h": 61,
+          "animation": {
+            "type": "scaleIn",
+            "delay": 1.0,
+            "duration": 0.3
+          },
+          "text": "1",
+          "fontSize": 11.0,
+          "fontColor": "#333333",
+          "fontWeight": "bold",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s07_el_04",
+          "label": "LIST_HEADING",
+          "type": "text",
+          "x": 557,
+          "y": 274,
+          "w": 1171,
+          "h": 67,
+          "animation": {
+            "type": "slideInLeft",
+            "delay": 1.0,
+            "duration": 0.4
+          },
+          "text": "腹式呼吸",
+          "fontSize": 24.0,
+          "fontColor": "#333333",
+          "fontWeight": "bold",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s07_el_05",
+          "label": "LIST_BODY",
+          "type": "text",
+          "x": 557,
+          "y": 351,
+          "w": 1171,
+          "h": 67,
+          "animation": {
+            "type": "fadeIn",
+            "delay": 1.3,
+            "duration": 0.4
+          },
+          "text": "ゆっくり深い呼吸で、副交感神経が活性化します",
+          "fontSize": 14.0,
+          "fontColor": "#333333",
+          "fontWeight": "normal",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s07_el_06",
+          "label": "LIST_NUMBER",
+          "type": "text",
+          "x": 461,
+          "y": 452,
+          "w": 61,
+          "h": 61,
+          "animation": {
+            "type": "scaleIn",
+            "delay": 2.2,
+            "duration": 0.3
+          },
+          "text": "2",
+          "fontSize": 11.0,
+          "fontColor": "#333333",
+          "fontWeight": "bold",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s07_el_07",
+          "label": "LIST_HEADING",
+          "type": "text",
+          "x": 557,
+          "y": 437,
+          "w": 1171,
+          "h": 67,
+          "animation": {
+            "type": "slideInLeft",
+            "delay": 2.2,
+            "duration": 0.4
+          },
+          "text": "瞑想",
+          "fontSize": 24.0,
+          "fontColor": "#333333",
+          "fontWeight": "bold",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s07_el_08",
+          "label": "LIST_BODY",
+          "type": "text",
+          "x": 557,
+          "y": 505,
+          "w": 1171,
+          "h": 67,
+          "animation": {
+            "type": "fadeIn",
+            "delay": 2.5,
+            "duration": 0.4
+          },
+          "text": "短時間でも日中の緊張やストレスをリセットできます",
+          "fontSize": 14.0,
+          "fontColor": "#333333",
+          "fontWeight": "normal",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s07_el_09",
+          "label": "LIST_NUMBER",
+          "type": "text",
+          "x": 461,
+          "y": 615,
+          "w": 61,
+          "h": 61,
+          "animation": {
+            "type": "scaleIn",
+            "delay": 3.4,
+            "duration": 0.3
+          },
+          "text": "3",
+          "fontSize": 11.0,
+          "fontColor": "#333333",
+          "fontWeight": "bold",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s07_el_10",
+          "label": "LIST_HEADING",
+          "type": "text",
+          "x": 557,
+          "y": 600,
+          "w": 1171,
+          "h": 67,
+          "animation": {
+            "type": "slideInLeft",
+            "delay": 3.4,
+            "duration": 0.4
+          },
+          "text": "音楽",
+          "fontSize": 24.0,
+          "fontColor": "#333333",
+          "fontWeight": "bold",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s07_el_11",
+          "label": "LIST_BODY",
+          "type": "text",
+          "x": 557,
+          "y": 677,
+          "w": 1171,
+          "h": 67,
+          "animation": {
+            "type": "fadeIn",
+            "delay": 3.6999999999999997,
+            "duration": 0.4
+          },
+          "text": "自然と副交感神経が優位になります",
+          "fontSize": 14.0,
+          "fontColor": "#333333",
+          "fontWeight": "normal",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s07_el_12",
+          "label": "BOTTOM_TAKEAWAY_ICON",
+          "type": "icon",
+          "x": 353,
+          "y": 878,
+          "w": 58,
+          "h": 58,
+          "animation": {
+            "type": "scaleIn",
+            "delay": 30.65,
+            "duration": 0.3
+          },
+          "iconSrc": "icons/slide_07_Image_4.png"
+        },
+        {
+          "id": "s07_el_13",
+          "label": "BOTTOM_TAKEAWAY",
+          "type": "text",
+          "x": 421,
+          "y": 854,
+          "w": 1346,
+          "h": 106,
+          "animation": {
+            "type": "slideInBottom",
+            "delay": 30.65,
+            "duration": 0.5
+          },
+          "text": "副交感神経を高める方法を日常に取り入れることが大切です",
+          "fontSize": 16.0,
+          "fontColor": "#333333",
+          "fontWeight": "normal",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s07_el_14",
+          "label": "CONTENT_ICON",
+          "type": "icon",
+          "x": 146,
+          "y": 511,
+          "w": 192,
+          "h": 192,
+          "animation": {
+            "type": "scaleIn",
+            "delay": 0.0,
+            "duration": 0.4
+          },
+          "iconSrc": "icons/slide_07_グラフィックス_31.png"
+        },
+        {
+          "id": "s07_el_15",
+          "label": "CONTENT_ICON",
+          "type": "icon",
+          "x": 146,
+          "y": 319,
+          "w": 192,
+          "h": 192,
+          "animation": {
+            "type": "scaleIn",
+            "delay": 0.0,
+            "duration": 0.4
+          },
+          "iconSrc": "icons/slide_07_グラフィックス_33.png"
+        }
+      ]
+    },
+    {
+      "slide_index": 7,
+      "slide_type": "list",
+      "duration": 33.9,
+      "background": {
+        "src": "slides/slide_08_bg.png"
+      },
+      "audio": {
+        "src": "audio/slide_08.wav",
+        "duration_sec": 33.9,
+        "offset_sec": 0
+      },
+      "elements": [
+        {
+          "id": "s08_el_01",
+          "label": "SLIDE_TITLE",
+          "type": "text",
+          "x": 134,
+          "y": 58,
+          "w": 1459,
+          "h": 125,
+          "animation": {
+            "type": "fadeIn",
+            "delay": 0.0,
+            "duration": 0.4
+          },
+          "text": "ぐっすり眠れば、心も仕事も安定",
+          "fontSize": 26.0,
+          "fontColor": "#333333",
+          "fontWeight": "bold",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s08_el_02",
+          "label": "PAGE_NUMBER",
+          "type": "text",
+          "x": 1613,
+          "y": 989,
+          "w": 230,
+          "h": 58,
+          "animation": {
+            "type": "fadeIn",
+            "delay": 0.0,
+            "duration": 0.2
+          },
+          "text": "8 / 9",
+          "fontSize": 9.0,
+          "fontColor": "#333333",
+          "fontWeight": "normal",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s08_el_03",
+          "label": "LIST_NUMBER",
+          "type": "text",
+          "x": 461,
+          "y": 236,
+          "w": 61,
+          "h": 61,
+          "animation": {
+            "type": "scaleIn",
+            "delay": 1.0,
+            "duration": 0.3
+          },
+          "text": "1",
+          "fontSize": 11.0,
+          "fontColor": "#333333",
+          "fontWeight": "bold",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s08_el_04",
+          "label": "LIST_HEADING",
+          "type": "text",
+          "x": 557,
+          "y": 221,
+          "w": 1171,
+          "h": 67,
+          "animation": {
+            "type": "slideInLeft",
+            "delay": 1.0,
+            "duration": 0.4
+          },
+          "text": "パフォーマンス向上",
+          "fontSize": 24.0,
+          "fontColor": "#333333",
+          "fontWeight": "bold",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s08_el_05",
+          "label": "LIST_BODY",
+          "type": "text",
+          "x": 557,
+          "y": 291,
+          "w": 1171,
+          "h": 67,
+          "animation": {
+            "type": "fadeIn",
+            "delay": 1.3,
+            "duration": 0.4
+          },
+          "text": "集中力や判断力が向上し、仕事や学習の効率が大幅に改善されます",
+          "fontSize": 14.0,
+          "fontColor": "#333333",
+          "fontWeight": "normal",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s08_el_06",
+          "label": "LIST_NUMBER",
+          "type": "text",
+          "x": 461,
+          "y": 385,
+          "w": 61,
+          "h": 61,
+          "animation": {
+            "type": "scaleIn",
+            "delay": 2.2,
+            "duration": 0.3
+          },
+          "text": "2",
+          "fontSize": 11.0,
+          "fontColor": "#333333",
+          "fontWeight": "bold",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s08_el_07",
+          "label": "LIST_HEADING",
+          "type": "text",
+          "x": 557,
+          "y": 383,
+          "w": 1171,
+          "h": 67,
+          "animation": {
+            "type": "slideInLeft",
+            "delay": 2.2,
+            "duration": 0.4
+          },
+          "text": "感情の安定",
+          "fontSize": 24.0,
+          "fontColor": "#333333",
+          "fontWeight": "bold",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s08_el_08",
+          "label": "LIST_BODY",
+          "type": "text",
+          "x": 557,
+          "y": 453,
+          "w": 1171,
+          "h": 67,
+          "animation": {
+            "type": "fadeIn",
+            "delay": 2.5,
+            "duration": 0.4
+          },
+          "text": "感情のコントロールを助け、ストレスに対する対処能力を高めます",
+          "fontSize": 14.0,
+          "fontColor": "#333333",
+          "fontWeight": "normal",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s08_el_09",
+          "label": "LIST_NUMBER",
+          "type": "text",
+          "x": 461,
+          "y": 534,
+          "w": 61,
+          "h": 61,
+          "animation": {
+            "type": "scaleIn",
+            "delay": 3.4,
+            "duration": 0.3
+          },
+          "text": "3",
+          "fontSize": 11.0,
+          "fontColor": "#333333",
+          "fontWeight": "bold",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s08_el_10",
+          "label": "LIST_HEADING",
+          "type": "text",
+          "x": 557,
+          "y": 534,
+          "w": 1171,
+          "h": 67,
+          "animation": {
+            "type": "slideInLeft",
+            "delay": 3.4,
+            "duration": 0.4
+          },
+          "text": "ストレス耐性UP",
+          "fontSize": 24.0,
+          "fontColor": "#333333",
+          "fontWeight": "bold",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s08_el_11",
+          "label": "LIST_BODY",
+          "type": "text",
+          "x": 557,
+          "y": 604,
+          "w": 1171,
+          "h": 67,
+          "animation": {
+            "type": "fadeIn",
+            "delay": 3.6999999999999997,
+            "duration": 0.4
+          },
+          "text": "日々のプレッシャーにも冷静に対応できるようになります",
+          "fontSize": 14.0,
+          "fontColor": "#333333",
+          "fontWeight": "normal",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s08_el_12",
+          "label": "LIST_NUMBER",
+          "type": "text",
+          "x": 461,
+          "y": 683,
+          "w": 61,
+          "h": 61,
+          "animation": {
+            "type": "scaleIn",
+            "delay": 4.6,
+            "duration": 0.3
+          },
+          "text": "4",
+          "fontSize": 11.0,
+          "fontColor": "#333333",
+          "fontWeight": "bold",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s08_el_13",
+          "label": "LIST_HEADING",
+          "type": "text",
+          "x": 557,
+          "y": 682,
+          "w": 1171,
+          "h": 67,
+          "animation": {
+            "type": "slideInLeft",
+            "delay": 4.6,
+            "duration": 0.4
+          },
+          "text": "日中の充実感",
+          "fontSize": 24.0,
+          "fontColor": "#333333",
+          "fontWeight": "bold",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s08_el_14",
+          "label": "LIST_BODY",
+          "type": "text",
+          "x": 557,
+          "y": 754,
+          "w": 1171,
+          "h": 67,
+          "animation": {
+            "type": "fadeIn",
+            "delay": 4.8999999999999995,
+            "duration": 0.4
+          },
+          "text": "良質な睡眠により活力が増し、\n一日を通して前向きな気持ちで過ごすことができます",
+          "fontSize": 14.0,
+          "fontColor": "#333333",
+          "fontWeight": "normal",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s08_el_15",
+          "label": "BOTTOM_TAKEAWAY_ICON",
+          "type": "icon",
+          "x": 353,
+          "y": 878,
+          "w": 58,
+          "h": 58,
+          "animation": {
+            "type": "scaleIn",
+            "delay": 26.15,
+            "duration": 0.3
+          },
+          "iconSrc": "icons/slide_08_Image_4.png"
+        },
+        {
+          "id": "s08_el_16",
+          "label": "BOTTOM_TAKEAWAY",
+          "type": "text",
+          "x": 421,
+          "y": 854,
+          "w": 1346,
+          "h": 106,
+          "animation": {
+            "type": "slideInBottom",
+            "delay": 26.15,
+            "duration": 0.5
+          },
+          "text": "良質な睡眠がもたらす様々なメリットを実感してみましょう",
+          "fontSize": 16.0,
+          "fontColor": "#333333",
+          "fontWeight": "normal",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s08_el_17",
+          "label": "CONTENT_ICON",
+          "type": "icon",
+          "x": 190,
+          "y": 338,
+          "w": 192,
+          "h": 192,
+          "animation": {
+            "type": "scaleIn",
+            "delay": 0.0,
+            "duration": 0.4
+          },
+          "iconSrc": "icons/slide_08_グラフィックス_36.png"
+        },
+        {
+          "id": "s08_el_18",
+          "label": "CONTENT_ICON",
+          "type": "icon",
+          "x": 182,
+          "y": 544,
+          "w": 192,
+          "h": 192,
+          "animation": {
+            "type": "scaleIn",
+            "delay": 0.0,
+            "duration": 0.4
+          },
+          "iconSrc": "icons/slide_08_グラフィックス_38.png"
+        }
+      ]
+    },
+    {
+      "slide_index": 8,
+      "slide_type": "paragraph",
+      "duration": 33.43,
+      "background": {
+        "src": "slides/slide_09_bg.png"
+      },
+      "audio": {
+        "src": "audio/slide_09.wav",
+        "duration_sec": 33.43,
+        "offset_sec": 0
+      },
+      "elements": [
+        {
+          "id": "s09_el_01",
+          "label": "SLIDE_TITLE",
+          "type": "text",
+          "x": 134,
+          "y": 58,
+          "w": 1459,
+          "h": 125,
+          "animation": {
+            "type": "fadeIn",
+            "delay": 0.0,
+            "duration": 0.4
+          },
+          "text": "睡眠を味方に、明日の自分を作ろう",
+          "fontSize": 26.0,
+          "fontColor": "#333333",
+          "fontWeight": "bold",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s09_el_02",
+          "label": "PAGE_NUMBER",
+          "type": "text",
+          "x": 1613,
+          "y": 989,
+          "w": 230,
+          "h": 58,
+          "animation": {
+            "type": "fadeIn",
+            "delay": 0.0,
+            "duration": 0.2
+          },
+          "text": "9 / 9",
+          "fontSize": 9.0,
+          "fontColor": "#333333",
+          "fontWeight": "normal",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s09_el_03",
+          "label": "CONTENT_ICON",
+          "type": "icon",
+          "x": 192,
+          "y": 566,
+          "w": 154,
+          "h": 154,
+          "animation": {
+            "type": "scaleIn",
+            "delay": 0.0,
+            "duration": 0.4
+          },
+          "iconSrc": "icons/slide_09_Image_2.png"
+        },
+        {
+          "id": "s09_el_04",
+          "label": "BODY_PARAGRAPH",
+          "type": "text",
+          "x": 518,
+          "y": 221,
+          "w": 1210,
+          "h": 595,
+          "animation": {
+            "type": "fadeIn",
+            "delay": 1.0,
+            "duration": 0.6
+          },
+          "text": "快眠環境を整えることは\n明日のより良い自分への投資です。\n今日から始められる小さな変化が、\n生活の質を向上させるでしょう。",
+          "fontSize": 24.0,
+          "fontColor": "#333333",
+          "fontWeight": "normal",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s09_el_05",
+          "label": "BOTTOM_TAKEAWAY_ICON",
+          "type": "icon",
+          "x": 300,
+          "y": 878,
+          "w": 58,
+          "h": 58,
+          "animation": {
+            "type": "scaleIn",
+            "delay": 24.93,
+            "duration": 0.3
+          },
+          "iconSrc": "icons/slide_09_Image_4.png"
+        },
+        {
+          "id": "s09_el_06",
+          "label": "BOTTOM_TAKEAWAY",
+          "type": "text",
+          "x": 368,
+          "y": 854,
+          "w": 1399,
+          "h": 106,
+          "animation": {
+            "type": "slideInBottom",
+            "delay": 24.93,
+            "duration": 0.5
+          },
+          "text": "睡眠環境と習慣を整えることで、より良い明日を手に入れましょう",
+          "fontSize": 16.0,
+          "fontColor": "#333333",
+          "fontWeight": "normal",
+          "lineHeight": 1.5
+        },
+        {
+          "id": "s09_el_07",
+          "label": "CONTENT_ICON",
+          "type": "icon",
+          "x": 173,
+          "y": 346,
+          "w": 192,
+          "h": 192,
+          "animation": {
+            "type": "scaleIn",
+            "delay": 0.0,
+            "duration": 0.4
+          },
+          "iconSrc": "icons/slide_09_グラフィックス_19.png"
+        }
+      ]
+    },
+    {
+      "slide_index": 9,
+      "slide_type": "paragraph",
+      "duration": 41.57,
+      "background": {
+        "src": "slides/slide_10_bg.png"
+      },
+      "audio": {
+        "src": "audio/slide_10.wav",
+        "duration_sec": 41.57,
+        "offset_sec": 0
+      },
+      "elements": []
+    }
+  ]
+}
