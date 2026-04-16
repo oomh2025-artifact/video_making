@@ -53,11 +53,20 @@ export interface SlideAudio {
   duration_sec: number;
   offset_sec: number;
 }
+export interface BackgroundShape {
+  x: number;
+  y: number;
+  w: number;
+  h: number;
+  fillColor?: string;
+  imageSrc?: string;
+}
 export interface Slide {
   slide_index: number;
   slide_type: SlideType;
   duration: number;
   background: { src: string };
+  backgroundShapes?: BackgroundShape[];
   audio?: SlideAudio | null;
   elements: SlideElement[];
 }

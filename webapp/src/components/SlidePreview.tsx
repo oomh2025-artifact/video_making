@@ -162,15 +162,20 @@ const SlidePreview = forwardRef<SlidePreviewHandle, Props>(function SlidePreview
 
   // 背景画像：LIST_NUMBERの四角を背景から消した加工済み画像を生成
   const bgSrc = slide.background.src;
-  const bgUrl = bgSrc.startsWith("data:") || bgSrc.startsWith("blob:") ? bgSrc : `/${bgSrc}`;
+  const hasBgImage = bgSrc.length > 0;
+  const bgUrl = hasBgImage
+    ? bgSrc.startsWith("data:") || bgSrc.startsWith("blob:")
+      ? bgSrc
+      : `/${bgSrc}`
+    : "";
   const listNumberElements = useMemo(
     () => slide.elements.filter((el) => el.label === "LIST_NUMBER"),
     [slide.elements]
   );
   const [cleanBgUrl, setCleanBgUrl] = useState<string | null>(null);
 
-  // cleanBgUrl の変化を ref に反映
-  readyRef.current = cleanBgUrl !== null;
+  // cleanBgUrl の変化を ref に反映（背景画像なしなら常にready）
+  readyRef.current = hasBgImage ? cleanBgUrl !== null : true;
 
   useImperativeHandle(ref, () => ({
     getCanvasEl: () => canvasRef.current,
@@ -193,13 +198,18 @@ const SlidePreview = forwardRef<SlidePreviewHandle, Props>(function SlidePreview
   }, [updateScale]);
 
   useEffect(() => {
+    // 背景画像なしの場合はスキップ
+    if (!hasBgImage) {
+      setCleanBgUrl(null);
+      return;
+    }
+
     // スライド変更時に「未準備」にリセット
     setCleanBgUrl(null);
     const img = new Image();
     img.crossOrigin = "anonymous";
     img.onload = () => {
       if (listNumberElements.length === 0) {
-        // LIST_NUMBERがないスライドはそのまま使う
         setCleanBgUrl(bgUrl);
         return;
       }
@@ -215,12 +225,10 @@ const SlidePreview = forwardRef<SlidePreviewHandle, Props>(function SlidePreview
       const sy = img.naturalHeight / SLIDE_H;
 
       for (const el of listNumberElements) {
-        // 四角の左隣の色をサンプリング
         const sampleX = Math.max(0, Math.round((el.x - 10) * sx));
         const sampleY = Math.round((el.y + el.h / 2) * sy);
         const pixel = ctx.getImageData(sampleX, sampleY, 1, 1).data;
 
-        // その色でLIST_NUMBER領域を塗りつぶし（少し大きめに）
         ctx.fillStyle = `rgb(${pixel[0]}, ${pixel[1]}, ${pixel[2]})`;
         const pad = 4;
         ctx.fillRect(
@@ -235,7 +243,7 @@ const SlidePreview = forwardRef<SlidePreviewHandle, Props>(function SlidePreview
     };
     img.onerror = () => setCleanBgUrl(bgUrl);
     img.src = bgUrl;
-  }, [bgUrl, listNumberElements]);
+  }, [bgUrl, hasBgImage, listNumberElements]);
 
   return (
     <div
@@ -276,6 +284,30 @@ const SlidePreview = forwardRef<SlidePreviewHandle, Props>(function SlidePreview
             }}
           />
         )}
+
+        {/* 背景シェイプ（ストライプ等）— アニメーションなし、最初から表示 */}
+        {slide.backgroundShapes?.map((bs, i) => (
+          <div
+            key={`bg-${i}`}
+            style={{
+              position: "absolute",
+              left: bs.x,
+              top: bs.y,
+              width: bs.w,
+              height: bs.h,
+              ...(bs.fillColor ? { backgroundColor: bs.fillColor } : {}),
+              overflow: "hidden",
+            }}
+          >
+            {bs.imageSrc && (
+              <img
+                src={bs.imageSrc}
+                alt=""
+                style={{ width: "100%", height: "100%", display: "block" }}
+              />
+            )}
+          </div>
+        ))}
 
         {/* 各要素（Remotion AnimatedElement準拠） */}
         {slide.elements.map((el) => {

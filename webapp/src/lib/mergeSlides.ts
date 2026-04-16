@@ -4,7 +4,7 @@
  */
 import type {
   RawShapesData, RawShape, SlidesData, Slide, SlideElement,
-  SlideType, ElementLabel, AnyLabel,
+  SlideType, ElementLabel, AnyLabel, BackgroundShape,
 } from "../types/slides";
 import type { TimingEntry } from "./timingParser";
 import { inferSlideType, labelShape } from "./labeler";
@@ -138,59 +138,18 @@ function shapeToElement(
 }
 
 /* ================================================================ */
-/*  背景生成ユーティリティ                                          */
+/*  背景ラベル定義                                                   */
 /* ================================================================ */
 const BG_LABELS = new Set([
   "BG_FILL", "HEADER_STRIPE", "FOOTER_STRIPE",
 ]);
 
-function loadImage(src: string): Promise<HTMLImageElement> {
-  return new Promise((resolve, reject) => {
-    const img = new Image();
-    img.onload = () => resolve(img);
-    img.onerror = reject;
-    img.src = src;
-  });
-}
-
-/** 背景シェイプからスライド背景画像を生成 */
-async function generateBackground(
-  bgShapes: Array<{ shape: RawShape; label: AnyLabel }>
-): Promise<string> {
-  const canvas = document.createElement("canvas");
-  canvas.width = OUTPUT_WIDTH;
-  canvas.height = OUTPUT_HEIGHT;
-  const ctx = canvas.getContext("2d")!;
-
-  ctx.fillStyle = "#FFFFFF";
-  ctx.fillRect(0, 0, OUTPUT_WIDTH, OUTPUT_HEIGHT);
-
-  // 大きいシェイプを先に描画（z-order近似）
-  bgShapes.sort((a, b) => (b.shape.w * b.shape.h) - (a.shape.w * a.shape.h));
-
-  for (const { shape } of bgShapes) {
-    if (shape.imageBlobUrl) {
-      try {
-        const img = await loadImage(shape.imageBlobUrl);
-        ctx.drawImage(img, shape.x, shape.y, shape.w, shape.h);
-      } catch {
-        // 画像ロード失敗時はスキップ
-      }
-    } else if (shape.fill_color) {
-      ctx.fillStyle = shape.fill_color;
-      ctx.fillRect(shape.x, shape.y, shape.w, shape.h);
-    }
-  }
-
-  return canvas.toDataURL("image/png");
-}
-
 /** メイン処理: RawShapesDataからSlidesDataを生成 */
-export async function mergeAndAssign(
+export function mergeAndAssign(
   rawData: RawShapesData,
   timingEntries: TimingEntry[],
   _narrations: string[]
-): Promise<SlidesData> {
+): SlidesData {
   const slidesOutput: Slide[] = [];
 
   for (const rawSlide of rawData.slides) {
@@ -209,12 +168,20 @@ export async function mergeAndAssign(
     }
 
     // 背景シェイプを収集 & コンテンツ要素を生成
-    const bgShapes: Array<{ shape: RawShape; label: AnyLabel }> = [];
+    const bgShapeData: BackgroundShape[] = [];
     const elements: SlideElement[] = [];
     let elIdx = 0;
     for (const [shape, label] of labeledShapes) {
       if (BG_LABELS.has(label)) {
-        bgShapes.push({ shape, label });
+        // 背景シェイプ → DOM直接描画用データとして保存
+        bgShapeData.push({
+          x: shape.x,
+          y: shape.y,
+          w: shape.w,
+          h: shape.h,
+          fillColor: shape.fill_color ?? undefined,
+          imageSrc: shape.imageBlobUrl ?? undefined,
+        });
       } else {
         const el = shapeToElement(shape, label, si, elIdx);
         if (el) {
@@ -222,14 +189,6 @@ export async function mergeAndAssign(
           elIdx++;
         }
       }
-    }
-
-    // 背景画像を生成
-    let bgSrc: string;
-    if (bgShapes.length > 0) {
-      bgSrc = await generateBackground(bgShapes);
-    } else {
-      bgSrc = ""; // 背景シェイプなし
     }
 
     // duration決定
@@ -255,7 +214,8 @@ export async function mergeAndAssign(
       slide_index: si,
       slide_type: slideType,
       duration: Math.round(duration * 100) / 100,
-      background: { src: bgSrc },
+      background: { src: "" },
+      backgroundShapes: bgShapeData,
       audio: null,
       elements,
     });
