@@ -148,6 +148,9 @@ export async function exportVideoFromDOM(
     }
 
     // キャプチャループ（壁時計ベース）
+    let prevIdx = -1;
+    let waitingForSlideChange = false;
+
     async function captureLoop() {
       if (stopped) return;
 
@@ -155,7 +158,6 @@ export async function exportVideoFromDOM(
 
       if (elapsedMs >= totalMs) {
         stopped = true;
-        // 少し待ってから停止（最終フレームのエンコード完了待ち）
         setTimeout(() => recorder.stop(), 300);
         return;
       }
@@ -167,8 +169,33 @@ export async function exportVideoFromDOM(
       setSlide(idx);
       setTime(time);
 
-      // React再描画待ち
-      await new Promise<void>((r) => requestAnimationFrame(() => r()));
+      // スライド切り替え時は画像ロード完了まで待機（背景ストライプ等のBlobURL画像）
+      if (idx !== prevIdx && !waitingForSlideChange) {
+        waitingForSlideChange = true;
+        console.log(`[Export] t=${globalTime.toFixed(2)}s → スライド${idx + 1}に切り替え`);
+        prevIdx = idx;
+
+        // React再描画 + DOM内すべての画像ロードを待つ
+        await new Promise<void>((r) =>
+          requestAnimationFrame(() => requestAnimationFrame(() => r())),
+        );
+
+        const imgs = previewEl.querySelectorAll("img");
+        await Promise.all(
+          Array.from(imgs).map((img) => {
+            if (img.complete && img.naturalWidth > 0) return Promise.resolve();
+            return new Promise<void>((r) => {
+              const t = setTimeout(() => r(), 1500); // 最大1.5秒待機
+              img.onload = () => { clearTimeout(t); r(); };
+              img.onerror = () => { clearTimeout(t); r(); };
+            });
+          }),
+        );
+        waitingForSlideChange = false;
+      } else {
+        // 同一スライド内：React再描画だけ待つ
+        await new Promise<void>((r) => requestAnimationFrame(() => r()));
+      }
 
       // プレビューをoutCanvasにコピー
       try {
@@ -186,8 +213,8 @@ export async function exportVideoFromDOM(
         });
         outCtx.clearRect(0, 0, 1920, 1080);
         outCtx.drawImage(captured, 0, 0, 1920, 1080);
-      } catch {
-        // キャプチャ失敗時は前フレーム維持
+      } catch (e) {
+        console.warn(`[Export] キャプチャ失敗 t=${globalTime.toFixed(2)}s:`, e);
       }
 
       onProgress(Math.min(100, (elapsedMs / totalMs) * 100));
