@@ -4,7 +4,8 @@ export type AnimationType =
   | "scaleIn"
   | "slideInLeft"
   | "slideInRight"
-  | "slideInBottom";
+  | "slideInBottom"
+  | "wobble";
 export type SlideType = "cover" | "paragraph" | "list" | "end";
 export type ElementLabel =
   | "COVER_TITLE" | "SLIDE_TITLE" | "BODY_PARAGRAPH"

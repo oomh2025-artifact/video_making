@@ -47,6 +47,8 @@ function getAnimationStyle(
       return { opacity: p, transform: `translateX(${60 * (1 - p)}px)` };
     case "slideInBottom":
       return { opacity: p, transform: `translateY(${40 * (1 - p)}px)` };
+    case "wobble":
+      return { opacity: 1, transform: `rotate(${Math.sin(currentTime * 4) * 3}deg)` };
     default:
       return { opacity: p, transform: "none" };
   }
