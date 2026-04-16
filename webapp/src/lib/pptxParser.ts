@@ -183,13 +183,29 @@ function extractSingleShape(
     fillColor = extractColor(solidFill);
   }
 
-  // 画像ファイル名
+  // 画像ファイル名とembedId
   let imageFilename: string | null = null;
   let imageContentType: string | null = null;
+  let embedId: string | undefined;
   if (isPicture) {
     imageContentType = "image/png";
     const safeName = shapeName.replace(/\s+/g, "_");
     imageFilename = `slide_${String(slideIndex + 1).padStart(2, "0")}_${safeName}.png`;
+
+    // blipFill > blip の r:embed を取得（画像抽出用）
+    const blipFill = findChild(sp, "blipFill");
+    if (blipFill) {
+      const blip = findChild(blipFill, "blip");
+      if (blip) {
+        embedId =
+          blip.getAttribute("r:embed") ||
+          blip.getAttributeNS(
+            "http://schemas.openxmlformats.org/officeDocument/2006/relationships",
+            "embed",
+          ) ||
+          undefined;
+      }
+    }
   }
 
   return {
@@ -215,6 +231,8 @@ function extractSingleShape(
     is_picture: isPicture,
     image_content_type: imageContentType,
     image_filename: imageFilename,
+    imageBlobUrl: undefined,
+    embedId,
   };
 }
 
@@ -292,6 +310,21 @@ function extractShapesFromSlideXml(
   return extractShapesFromTree(spTree, slideIndex, swEmu, shEmu);
 }
 
+/** .relsファイルをパースして embedId → Target のマップを返す */
+function parseSlideRels(relsXml: string): Map<string, string> {
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(relsXml, "application/xml");
+  const map = new Map<string, string>();
+  const rels = doc.getElementsByTagName("Relationship");
+  for (let i = 0; i < rels.length; i++) {
+    const rel = rels[i];
+    const id = rel.getAttribute("Id");
+    const target = rel.getAttribute("Target");
+    if (id && target) map.set(id, target);
+  }
+  return map;
+}
+
 /** PPTXファイルをパースしてRawShapesDataを返す */
 export async function parsePptx(file: File): Promise<RawShapesData> {
   const zip = await JSZip.loadAsync(file);
@@ -332,6 +365,36 @@ export async function parsePptx(file: File): Promise<RawShapesData> {
 
     const slideDoc = parser.parseFromString(slideXml, "application/xml");
     const shapes = extractShapesFromSlideXml(slideDoc, i, swEmu, shEmu);
+
+    // .relsファイルからembedIdとメディアファイルの対応を取得
+    const slideNum = slideFiles[i].match(/slide(\d+)/)?.[1] || "1";
+    const relsPath = `ppt/slides/_rels/slide${slideNum}.xml.rels`;
+    const relsXml = await zip.file(relsPath)?.async("text");
+    const rels = relsXml ? parseSlideRels(relsXml) : new Map<string, string>();
+
+    // 画像シェイプの実画像をPPTXから抽出してBlobURLを設定
+    for (const shape of shapes) {
+      if (shape.is_picture && shape.embedId) {
+        const target = rels.get(shape.embedId);
+        if (target) {
+          // ../media/image1.png → ppt/media/image1.png
+          const mediaPath = target.startsWith("../")
+            ? "ppt/" + target.substring(3)
+            : target.startsWith("/")
+              ? target.substring(1)
+              : "ppt/slides/" + target;
+          const imageFile = zip.file(mediaPath);
+          if (imageFile) {
+            try {
+              const blob = await imageFile.async("blob");
+              shape.imageBlobUrl = URL.createObjectURL(blob);
+            } catch (e) {
+              console.warn(`画像抽出失敗: ${mediaPath}`, e);
+            }
+          }
+        }
+      }
+    }
 
     slides.push({ slide_index: i, shapes });
   }

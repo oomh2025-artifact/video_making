@@ -103,6 +103,8 @@ export interface RawShape {
   is_picture: boolean;
   image_content_type: string | null;
   image_filename: string | null;
+  imageBlobUrl?: string;
+  embedId?: string;
 }
 export interface RawSlide {
   slide_index: number;

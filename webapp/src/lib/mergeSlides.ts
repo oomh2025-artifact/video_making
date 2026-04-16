@@ -109,7 +109,9 @@ function shapeToElement(
   // アイコン
   if (shape.is_picture) {
     element.type = "icon";
-    if (shape.image_filename) {
+    if (shape.imageBlobUrl) {
+      element.iconSrc = shape.imageBlobUrl;
+    } else if (shape.image_filename) {
       element.iconSrc = `icons/${shape.image_filename}`;
     }
     delete element.text;
@@ -123,12 +125,61 @@ function shapeToElement(
   return element;
 }
 
+/* ================================================================ */
+/*  背景生成ユーティリティ                                          */
+/* ================================================================ */
+const BG_LABELS = new Set([
+  "BG_FILL", "HEADER_STRIPE", "FOOTER_STRIPE", "TITLE_LINE",
+  "BOTTOM_BAR", "LIST_DIVIDER", "CONTENT_AREA_BG", "ACCENT_SHAPE",
+]);
+
+function loadImage(src: string): Promise<HTMLImageElement> {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => resolve(img);
+    img.onerror = reject;
+    img.src = src;
+  });
+}
+
+/** 背景シェイプからスライド背景画像を生成 */
+async function generateBackground(
+  bgShapes: Array<{ shape: RawShape; label: AnyLabel }>
+): Promise<string> {
+  const canvas = document.createElement("canvas");
+  canvas.width = OUTPUT_WIDTH;
+  canvas.height = OUTPUT_HEIGHT;
+  const ctx = canvas.getContext("2d")!;
+
+  ctx.fillStyle = "#FFFFFF";
+  ctx.fillRect(0, 0, OUTPUT_WIDTH, OUTPUT_HEIGHT);
+
+  // 大きいシェイプを先に描画（z-order近似）
+  bgShapes.sort((a, b) => (b.shape.w * b.shape.h) - (a.shape.w * a.shape.h));
+
+  for (const { shape } of bgShapes) {
+    if (shape.imageBlobUrl) {
+      try {
+        const img = await loadImage(shape.imageBlobUrl);
+        ctx.drawImage(img, shape.x, shape.y, shape.w, shape.h);
+      } catch {
+        // 画像ロード失敗時はスキップ
+      }
+    } else if (shape.fill_color) {
+      ctx.fillStyle = shape.fill_color;
+      ctx.fillRect(shape.x, shape.y, shape.w, shape.h);
+    }
+  }
+
+  return canvas.toDataURL("image/png");
+}
+
 /** メイン処理: RawShapesDataからSlidesDataを生成 */
-export function mergeAndAssign(
+export async function mergeAndAssign(
   rawData: RawShapesData,
   timingEntries: TimingEntry[],
   _narrations: string[]
-): SlidesData {
+): Promise<SlidesData> {
   const slidesOutput: Slide[] = [];
 
   for (const rawSlide of rawData.slides) {
@@ -146,15 +197,28 @@ export function mergeAndAssign(
       labeledShapes.push([shape, label]);
     }
 
-    // elementに変換（背景層は除外）
+    // 背景シェイプを収集 & コンテンツ要素を生成
+    const bgShapes: Array<{ shape: RawShape; label: AnyLabel }> = [];
     const elements: SlideElement[] = [];
     let elIdx = 0;
     for (const [shape, label] of labeledShapes) {
-      const el = shapeToElement(shape, label, si, elIdx);
-      if (el) {
-        elements.push(el);
-        elIdx++;
+      if (BG_LABELS.has(label)) {
+        bgShapes.push({ shape, label });
+      } else {
+        const el = shapeToElement(shape, label, si, elIdx);
+        if (el) {
+          elements.push(el);
+          elIdx++;
+        }
       }
+    }
+
+    // 背景画像を生成
+    let bgSrc: string;
+    if (bgShapes.length > 0) {
+      bgSrc = await generateBackground(bgShapes);
+    } else {
+      bgSrc = ""; // 背景シェイプなし
     }
 
     // duration決定
@@ -180,7 +244,7 @@ export function mergeAndAssign(
       slide_index: si,
       slide_type: slideType,
       duration: Math.round(duration * 100) / 100,
-      background: { src: `slides/slide_${String(si + 1).padStart(2, "0")}_bg.png` },
+      background: { src: bgSrc },
       audio: null,
       elements,
     });

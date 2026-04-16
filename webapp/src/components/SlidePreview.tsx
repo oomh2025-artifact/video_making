@@ -123,9 +123,12 @@ function renderIconElement(el: SlideElement) {
       }} />
     );
   }
+  const src = el.iconSrc.startsWith("blob:") || el.iconSrc.startsWith("data:")
+    ? el.iconSrc
+    : `/${el.iconSrc}`;
   return (
     <img
-      src={`/${el.iconSrc}`}
+      src={src}
       alt={el.label}
       style={{ width: "100%", height: "100%", objectFit: "contain" }}
     />
@@ -158,7 +161,8 @@ const SlidePreview = forwardRef<SlidePreviewHandle, Props>(function SlidePreview
   const [scale, setScale] = useState(0.4);
 
   // 背景画像：LIST_NUMBERの四角を背景から消した加工済み画像を生成
-  const bgUrl = `/${slide.background.src}`;
+  const bgSrc = slide.background.src;
+  const bgUrl = bgSrc.startsWith("data:") || bgSrc.startsWith("blob:") ? bgSrc : `/${bgSrc}`;
   const listNumberElements = useMemo(
     () => slide.elements.filter((el) => el.label === "LIST_NUMBER"),
     [slide.elements]

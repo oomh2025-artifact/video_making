@@ -30,7 +30,7 @@ export default function SetupPage({ onComplete }: Props) {
     try {
       const rawData = await parsePptx(pptxFile);
       const timingEntries = parseTimingText(timingText);
-      const slidesData = mergeAndAssign(rawData, timingEntries, []);
+      const slidesData = await mergeAndAssign(rawData, timingEntries, []);
 
       onComplete(slidesData, audioFile);
     } catch (e) {
