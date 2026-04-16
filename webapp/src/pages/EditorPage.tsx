@@ -338,6 +338,7 @@ export default function EditorPage({ slidesData, audioFile, onBack }: Props) {
         (t) => setCurrentTime(t),
         (pct) => setExportProgress(pct),
         () => previewRef.current?.isReady() ?? true,
+        data.slides,
       );
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
