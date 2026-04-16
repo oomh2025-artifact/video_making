@@ -46,8 +46,15 @@ function shapeToElement(
   slideIndex: number,
   elIndex: number
 ): SlideElement | null {
-  const rule = ANIMATION_RULES[label];
-  if (rule === null || rule === undefined) return null;
+  // 背景ラベルはshapeToElementでは処理しない（ループ側で分離済み）
+  if (BG_LABELS.has(label as string)) return null;
+
+  // アニメーションルール（なければデフォルトfadeIn）
+  const rule = ANIMATION_RULES[label] ?? {
+    type: "fadeIn" as const,
+    delay: 0,
+    duration: 0.5,
+  };
 
   // タイプ判定
   let elType: "text" | "richText" | "icon" | "image" = "text";
@@ -122,6 +129,11 @@ function shapeToElement(
     delete element.spans;
   }
 
+  // 装飾シェイプ（テキストなし・画像なし）に背景色を設定
+  if (!shape.is_picture && !shape.has_text && shape.fill_color) {
+    element.bgColor = shape.fill_color;
+  }
+
   return element;
 }
 
@@ -129,8 +141,7 @@ function shapeToElement(
 /*  背景生成ユーティリティ                                          */
 /* ================================================================ */
 const BG_LABELS = new Set([
-  "BG_FILL", "HEADER_STRIPE", "FOOTER_STRIPE", "TITLE_LINE",
-  "BOTTOM_BAR", "LIST_DIVIDER", "CONTENT_AREA_BG", "ACCENT_SHAPE",
+  "BG_FILL", "HEADER_STRIPE", "FOOTER_STRIPE",
 ]);
 
 function loadImage(src: string): Promise<HTMLImageElement> {

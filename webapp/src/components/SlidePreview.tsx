@@ -304,9 +304,12 @@ const SlidePreview = forwardRef<SlidePreviewHandle, Props>(function SlidePreview
                 justifyContent: isListNumber ? "center" : "flex-start",
                 cursor: "pointer",
                 // LIST_NUMBER: 四角＋数字を一体描画（PPTX準拠色）
+                // その他の要素: bgColorがあれば背景色を適用
                 ...(isListNumber ? {
                   backgroundColor: el.bgColor ?? "#4ecdd3",
                   borderRadius: 8,
+                } : el.bgColor ? {
+                  backgroundColor: el.bgColor,
                 } : {}),
                 // 編集モードの枠
                 ...(editMode ? {
