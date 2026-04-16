@@ -197,13 +197,13 @@ function extractSingleShape(
     if (blipFill) {
       const blip = findChild(blipFill, "blip");
       if (blip) {
-        embedId =
-          blip.getAttribute("r:embed") ||
-          blip.getAttributeNS(
-            "http://schemas.openxmlformats.org/officeDocument/2006/relationships",
-            "embed",
-          ) ||
-          undefined;
+        // 名前空間プレフィックスに依存しない取得方法
+        for (const attr of Array.from(blip.attributes)) {
+          if (attr.localName === "embed") {
+            embedId = attr.value;
+            break;
+          }
+        }
       }
     }
   }

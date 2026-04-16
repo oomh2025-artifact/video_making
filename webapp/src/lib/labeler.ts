@@ -63,7 +63,8 @@ export function labelPicture(
 ): AnyLabel {
   const topPct = (shape.y / OUTPUT_HEIGHT) * 100;
 
-  if (topPct < 5 || topPct > 95) {
+  // 上下のストライプ画像（しきい値を非画像版と統一）
+  if (topPct < 5 || topPct >= 93) {
     return topPct < 5 ? "HEADER_STRIPE" : "FOOTER_STRIPE";
   }
   if (topPct > 75 && topPct < 90 && shape.w < 80) return "BOTTOM_TAKEAWAY_ICON";
