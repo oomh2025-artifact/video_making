@@ -8,7 +8,7 @@ interface Props {
   onSelectElement: (id: string) => void;
 }
 
-const ANIM_TYPES: AnimationType[] = ["fadeIn", "scaleIn", "slideInLeft", "slideInRight", "slideInBottom"];
+const ANIM_TYPES: AnimationType[] = ["fadeIn", "scaleIn", "slideInLeft", "slideInRight", "slideInBottom", "wobble"];
 
 export default function PropertyPanel({ slide, selectedElement, onUpdateElement, onSelectElement }: Props) {
   return (
