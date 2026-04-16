@@ -193,17 +193,21 @@ function extractSingleShape(
     imageFilename = `slide_${String(slideIndex + 1).padStart(2, "0")}_${safeName}.png`;
 
     // blipFill > blip の r:embed を取得（画像抽出用）
+    // 通常画像: <a:blip r:embed="rId2"/>
+    // SVG画像: <a:blip><a:extLst><a:ext><asvg:svgBlip r:embed="rId7"/></a:ext></a:extLst></a:blip>
     const blipFill = findChild(sp, "blipFill");
     if (blipFill) {
-      const blip = findChild(blipFill, "blip");
-      if (blip) {
-        // 名前空間プレフィックスに依存しない取得方法
-        for (const attr of Array.from(blip.attributes)) {
+      // blipFill配下のすべての要素から embed 属性を探す
+      const allDescendants = findAll(blipFill, "blip")
+        .concat(findAll(blipFill, "svgBlip"));
+      for (const el of allDescendants) {
+        for (const attr of Array.from(el.attributes)) {
           if (attr.localName === "embed") {
             embedId = attr.value;
             break;
           }
         }
+        if (embedId) break;
       }
     }
   }
@@ -386,7 +390,11 @@ export async function parsePptx(file: File): Promise<RawShapesData> {
           const imageFile = zip.file(mediaPath);
           if (imageFile) {
             try {
-              const blob = await imageFile.async("blob");
+              const raw = await imageFile.async("arraybuffer");
+              // ファイル拡張子からMIMEタイプを判定
+              const isSvg = mediaPath.toLowerCase().endsWith(".svg");
+              const mime = isSvg ? "image/svg+xml" : "image/png";
+              const blob = new Blob([raw], { type: mime });
               shape.imageBlobUrl = URL.createObjectURL(blob);
             } catch (e) {
               console.warn(`画像抽出失敗: ${mediaPath}`, e);
