@@ -144,6 +144,18 @@ export function calculateDelays(
     }
   }
 
+  // BODY_PARAGRAPH: 同じスライド内に複数ある場合、Y座標順にstagger
+  const bodyParagraphs = elements
+    .filter((e) => e.label === "BODY_PARAGRAPH")
+    .sort((a, b) => a.y - b.y);
+  if (bodyParagraphs.length >= 2) {
+    const BASE_DELAY = 1.0;
+    const STAGGER = 0.5;
+    bodyParagraphs.forEach((e, i) => {
+      e.animation.delay = BASE_DELAY + i * STAGGER;
+    });
+  }
+
   // CONTENT_ICON: 最も近いテキスト要素と同時
   for (const e of elements) {
     if (e.label === "CONTENT_ICON") {
