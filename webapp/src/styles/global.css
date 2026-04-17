@@ -414,7 +414,7 @@ input, textarea {
 
 /* プロパティパネル */
 .property-panel {
-  width: 280px;
+  width: 320px;
   background: var(--surface);
   border-left: 1px solid var(--border);
   overflow-y: auto;
