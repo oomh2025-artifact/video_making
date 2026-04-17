@@ -298,6 +298,20 @@ export default function EditorPage({ slidesData, audioFile, onBack }: Props) {
     [],
   );
 
+  const handleDeleteElement = useCallback(
+    (elementId: string) => {
+      setData((prev) => ({
+        ...prev,
+        slides: prev.slides.map((slide) => ({
+          ...slide,
+          elements: slide.elements.filter((el) => el.id !== elementId),
+        })),
+      }));
+      setSelectedElementId(null);
+    },
+    [],
+  );
+
   /* ================================================================ */
   /*  エクスポート                                                     */
   /* ================================================================ */
@@ -437,6 +451,7 @@ export default function EditorPage({ slidesData, audioFile, onBack }: Props) {
             slide={currentSlide}
             selectedElement={selectedElement}
             onUpdateElement={handleUpdateElement}
+            onDeleteElement={handleDeleteElement}
             onSelectElement={setSelectedElementId}
           />
         )}
