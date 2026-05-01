@@ -19,6 +19,11 @@ export type BackgroundLabel =
   | "TITLE_LINE" | "BOTTOM_BAR" | "LIST_DIVIDER"
   | "CONTENT_AREA_BG" | "ACCENT_SHAPE";
 export type AnyLabel = ElementLabel | BackgroundLabel;
+
+// テキスト揃え
+export type HorizontalAlign = "left" | "center" | "right";
+export type VerticalAlign = "top" | "middle" | "bottom";
+
 export interface Animation {
   type: AnimationType;
   delay: number;
@@ -44,6 +49,8 @@ export interface SlideElement {
   bgColor?: string;
   fontWeight?: "normal" | "bold";
   lineHeight?: number;
+  textAlign?: HorizontalAlign;       // PPTX <a:pPr algn=".."/> から
+  verticalAlign?: VerticalAlign;     // PPTX <a:bodyPr anchor=".."/> から
   iconSrc?: string;
   imageSrc?: string;
   animation: Animation;
@@ -106,6 +113,8 @@ export interface RawShape {
   has_text: boolean;
   text: string | null;
   text_runs: TextRun[] | null;
+  text_align: HorizontalAlign | null;     // 段落の水平揃え（最初の段落基準）
+  vertical_align: VerticalAlign | null;   // テキストフレームの垂直揃え
   fill_color: string | null;
   line_color: string | null;
   line_width_pt: number | null;

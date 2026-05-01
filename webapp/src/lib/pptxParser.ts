@@ -3,7 +3,10 @@
  * Python版 extract_shapes.py のTypeScript移植
  */
 import JSZip from "jszip";
-import type { RawShape, RawSlide, RawShapesData, TextRun } from "../types/slides";
+import type {
+  RawShape, RawSlide, RawShapesData, TextRun,
+  HorizontalAlign, VerticalAlign,
+} from "../types/slides";
 
 const OUTPUT_WIDTH = 1920;
 const OUTPUT_HEIGHT = 1080;
@@ -45,6 +48,43 @@ function extractColor(el: Element | null): string | null {
     if (val) return `#${val}`;
   }
   return null;
+}
+
+/**
+ * テキスト揃えを抽出
+ *   水平: 最初の段落の <a:pPr algn=".."/> を採用
+ *     l/just/dist → left, ctr → center, r → right
+ *     未指定の場合は null（呼び出し側でデフォルトを決める）
+ *   垂直: <a:bodyPr anchor=".."/> を採用
+ *     t → top, ctr → middle, b → bottom
+ *     未指定の場合は null
+ */
+function extractTextAlignment(
+  txBody: Element
+): { textAlign: HorizontalAlign | null; verticalAlign: VerticalAlign | null } {
+  // 水平揃え
+  let textAlign: HorizontalAlign | null = null;
+  const paragraphs = findChildren(txBody, "p");
+  for (const para of paragraphs) {
+    const pPr = findChild(para, "pPr");
+    if (!pPr) continue;
+    const algn = pPr.getAttribute("algn");
+    if (algn === "ctr") { textAlign = "center"; break; }
+    if (algn === "r") { textAlign = "right"; break; }
+    if (algn === "l" || algn === "just" || algn === "dist") { textAlign = "left"; break; }
+  }
+
+  // 垂直揃え
+  let verticalAlign: VerticalAlign | null = null;
+  const bodyPr = findChild(txBody, "bodyPr");
+  if (bodyPr) {
+    const anchor = bodyPr.getAttribute("anchor");
+    if (anchor === "ctr") verticalAlign = "middle";
+    else if (anchor === "b") verticalAlign = "bottom";
+    else if (anchor === "t") verticalAlign = "top";
+  }
+
+  return { textAlign, verticalAlign };
 }
 
 /** テキストrunの情報を抽出 */
@@ -165,6 +205,8 @@ function extractSingleShape(
   let hasText = false;
   let text: string | null = null;
   let textRuns: TextRun[] | null = null;
+  let textAlign: HorizontalAlign | null = null;
+  let verticalAlign: VerticalAlign | null = null;
 
   if (txBody) {
     const runs = extractTextRuns(txBody);
@@ -174,6 +216,10 @@ function extractSingleShape(
       text = rawText;
       textRuns = runs;
     }
+    // テキスト揃えはテキストの有無に関わらず取得（bodyPrは常にあるため）
+    const align = extractTextAlignment(txBody);
+    textAlign = align.textAlign;
+    verticalAlign = align.verticalAlign;
   }
 
   // 塗りつぶし色取得
@@ -229,6 +275,8 @@ function extractSingleShape(
     has_text: hasText,
     text,
     text_runs: textRuns,
+    text_align: textAlign,
+    vertical_align: verticalAlign,
     fill_color: fillColor,
     line_color: null,
     line_width_pt: null,

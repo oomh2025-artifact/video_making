@@ -103,6 +103,10 @@ function shapeToElement(
     }
   }
 
+  // テキスト揃え（PPTXで明示されていればそれを採用、未指定なら省略）
+  if (shape.text_align) element.textAlign = shape.text_align;
+  if (shape.vertical_align) element.verticalAlign = shape.vertical_align;
+
   // richText spans
   if (elType === "richText" && shape.text_runs) {
     element.spans = shape.text_runs.map((r) => {
@@ -127,6 +131,8 @@ function shapeToElement(
     delete element.fontWeight;
     delete element.lineHeight;
     delete element.spans;
+    delete element.textAlign;
+    delete element.verticalAlign;
   }
 
   // 装飾シェイプ（テキストなし・画像なし）に背景色を設定

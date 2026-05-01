@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback, useMemo, forwardRef, useImperativeHandle } from "react";
-import type { Slide, SlideElement } from "../types/slides";
+import type { Slide, SlideElement, HorizontalAlign, VerticalAlign } from "../types/slides";
 import { labelJa } from "../lib/labelNames";
 
 export interface SlidePreviewHandle {
@@ -68,6 +68,20 @@ function getLabelColor(label: string): string {
   return colors[label] || "#6b7280";
 }
 
+/** 水平揃え → flex justifyContent */
+function hAlignToJustify(a: HorizontalAlign | undefined): "flex-start" | "center" | "flex-end" {
+  if (a === "center") return "center";
+  if (a === "right") return "flex-end";
+  return "flex-start"; // 'left' および未指定
+}
+
+/** 垂直揃え → flex alignItems。未指定はcenter（既存動作を維持） */
+function vAlignToAlignItems(a: VerticalAlign | undefined): "flex-start" | "center" | "flex-end" {
+  if (a === "top") return "flex-start";
+  if (a === "bottom") return "flex-end";
+  return "center"; // 'middle' および未指定
+}
+
 /** テキスト要素の描画（Remotion TextElement準拠） */
 function renderTextElement(el: SlideElement) {
   return (
@@ -80,6 +94,7 @@ function renderTextElement(el: SlideElement) {
       whiteSpace: "pre-wrap",
       display: "block",
       width: "100%",
+      textAlign: el.textAlign ?? "left",
     }}>
       {el.text}
     </span>
@@ -96,6 +111,7 @@ function renderRichTextElement(el: SlideElement) {
       whiteSpace: "pre-wrap",
       display: "block",
       width: "100%",
+      textAlign: el.textAlign ?? "left",
     }}>
       {el.spans?.map((span, i) =>
         span.text === "\n" ? (
@@ -319,6 +335,16 @@ const SlidePreview = forwardRef<SlidePreviewHandle, Props>(function SlidePreview
           // アニメーション開始前の要素はDOMから完全に除外
           if (currentTime < el.animation.delay) return null;
 
+          // テキスト揃えに応じたflexプロパティ
+          // LIST_NUMBER: 常に中央配置(従来動作を維持)
+          // それ以外: PPTXの揃え情報を反映、未指定なら従来のデフォルト(左寄せ・垂直中央)
+          const justifyContent = isListNumber
+            ? "center"
+            : hAlignToJustify(el.textAlign);
+          const alignItems = isListNumber
+            ? "center"
+            : vAlignToAlignItems(el.verticalAlign);
+
           return (
             <div
               key={el.id}
@@ -332,8 +358,8 @@ const SlidePreview = forwardRef<SlidePreviewHandle, Props>(function SlidePreview
                 opacity,
                 transform,
                 display: "flex",
-                alignItems: "center",
-                justifyContent: isListNumber ? "center" : "flex-start",
+                alignItems,
+                justifyContent,
                 cursor: "pointer",
                 // LIST_NUMBER: 四角＋数字を一体描画（PPTX準拠色）
                 // その他の要素: bgColorがあれば背景色を適用
