@@ -22,7 +22,7 @@ export const SlideShow: React.FC<{ data: SlidesData }> = ({ data }) => {
                     >
                         <SlideRenderer slide={slide} fps={fps} />
                         {slide.audio && slide.audio.src && (
-                            <Sequence from={Math.round((slide.audio.offset_sec ?? 0.5) * fps)}>
+                            <Sequence from={Math.round((slide.audio.offset_sec ?? 1.0) * fps)}>
                                 <Audio
                                     src={staticFile(slide.audio.src)}
                                     volume={1}
