@@ -17,13 +17,20 @@ from constants import OUTPUT_WIDTH, OUTPUT_HEIGHT
 
 def get_shapes_to_hide(raw_shapes_path):
     """
-    非表示にすべきシェイプのIDをスライドごとに取得する。
+    背景のみPNG生成時に「非表示処理」すべきシェイプを返す。
 
-    非表示対象:
-      1. has_text == True かつ text が空でない
+    戻り値: { slide_index: [(shape_id, kind), ...] }
+      kind = 'text'    : テキストの中身だけを空にする(吹き出しやテキストボックスの
+                          形・枠・塗りは背景PNGに残す)
+      kind = 'picture' : シェイプ全体を画面外に退避する(アイコン等の画像)
+
+    対象:
+      1. has_text == True かつ text が空でない → kind='text'
       2. shape_type == "PICTURE" かつコンテンツエリア内 (top > 15% かつ top < 90%)
+         → kind='picture'
       3. shape_type == "PICTURE" かつ名前に「グラフィックス」「Graphic」を含む
-    非表示にしない:
+         → kind='picture'
+    対象外:
       - ストライプパターン画像（ヘッダー/フッターと同位置のPICTURE）
       - 背景塗りつぶしのAUTO_SHAPE（テキストが空）
     """
@@ -31,33 +38,33 @@ def get_shapes_to_hide(raw_shapes_path):
         data = json.load(f)
 
     oh = data["output_height"]
-    result = {}  # { slide_index: [shape_id, ...] }
+    result = {}  # { slide_index: [(shape_id, kind), ...] }
 
     for slide in data["slides"]:
-        hide_ids = []
+        hide_list = []
         for shape in slide["shapes"]:
             sid = shape["shape_id"]
             top_pct = shape["y"] / oh * 100 if oh > 0 else 0
 
-            # 条件1: テキストあり
+            # 条件1: テキストあり → テキストだけ消去(形は残す)
             if shape["has_text"] and shape["text"] and shape["text"].strip():
-                hide_ids.append(sid)
+                hide_list.append((sid, "text"))
                 continue
 
-            # 条件2 & 3: PICTURE判定
+            # 条件2 & 3: PICTURE判定 → 画面外退避
             if shape["is_picture"]:
                 name = shape["name"]
                 # 条件3: 名前にグラフィックス/Graphicを含む
                 if "グラフィックス" in name or "Graphic" in name:
-                    hide_ids.append(sid)
+                    hide_list.append((sid, "picture"))
                     continue
                 # 条件2: コンテンツエリア内のPICTURE
                 if 15 < top_pct < 90:
-                    hide_ids.append(sid)
+                    hide_list.append((sid, "picture"))
                     continue
-                # ストライプパターン（top < 5% or top > 95%）は非表示にしない
+                # ストライプパターン（top < 15% or top > 90%）は非表示にしない
 
-        result[slide["slide_index"]] = hide_ids
+        result[slide["slide_index"]] = hide_list
 
     return result
 
@@ -89,7 +96,13 @@ def export_full_slides(pptx_path, output_dir):
 
 
 def export_bg_only(pptx_path, shapes_to_hide, output_dir):
-    """シェイプを一時的に画面外に退避してからPNG書き出し"""
+    """
+    背景のみ版PNG書き出し:
+      - kind='picture': 画面外に退避してから書き出し、後で元に戻す
+      - kind='text'   : テキストの中身だけを空にしてから書き出し、後で元に戻す
+                        (シェイプの形・枠・塗りは背景PNGに残る)
+    変更は保存しないので、入力PPTXファイルは書き換わらない。
+    """
     import comtypes.client
 
     pptx_abs = os.path.abspath(pptx_path)
@@ -102,29 +115,61 @@ def export_bg_only(pptx_path, shapes_to_hide, output_dir):
     try:
         presentation = ppt_app.Presentations.Open(pptx_abs, WithWindow=False)
 
-        for slide_index, hide_ids in shapes_to_hide.items():
+        for slide_index, hide_list in shapes_to_hide.items():
             slide = presentation.Slides(slide_index + 1)  # COM は 1-indexed
 
-            # 非表示対象のシェイプを退避
-            originals = {}
+            # shape_id -> kind の辞書化
+            kind_map = {sid: kind for sid, kind in hide_list}
+
+            originals_left = {}  # kind='picture' の退避情報
+            originals_text = {}  # kind='text'    の退避情報
+
+            # 非表示処理
             for j in range(1, slide.Shapes.Count + 1):
                 shape = slide.Shapes(j)
-                if shape.Id in hide_ids:
-                    originals[shape.Id] = shape.Left
-                    shape.Left = -9999  # 画面外へ
+                kind = kind_map.get(shape.Id)
+                if kind is None:
+                    continue
+
+                if kind == "picture":
+                    # 画像系は画面外に退避
+                    originals_left[shape.Id] = shape.Left
+                    shape.Left = -9999
+                elif kind == "text":
+                    # テキスト持ちは中身だけ空にする
+                    try:
+                        if shape.HasTextFrame:
+                            tf = shape.TextFrame
+                            if tf.HasText:
+                                originals_text[shape.Id] = tf.TextRange.Text
+                                tf.TextRange.Text = ""
+                    except Exception as e:
+                        print(f"  [WARN] shape {shape.Id} のテキスト消去に失敗: {e}",
+                              file=sys.stderr)
 
             # 背景のみ版PNG書き出し
             bg_path = os.path.join(output_abs, f"slide_{slide_index+1:02d}_bg.png")
             slide.Export(bg_path, "PNG", OUTPUT_WIDTH, OUTPUT_HEIGHT)
             print(f"  背景版: slide_{slide_index+1:02d}_bg.png")
 
-            # シェイプを元の位置に戻す
+            # 元に戻す
             for j in range(1, slide.Shapes.Count + 1):
                 shape = slide.Shapes(j)
-                if shape.Id in originals:
-                    shape.Left = originals[shape.Id]
+                if shape.Id in originals_left:
+                    shape.Left = originals_left[shape.Id]
+                if shape.Id in originals_text:
+                    try:
+                        shape.TextFrame.TextRange.Text = originals_text[shape.Id]
+                    except Exception as e:
+                        print(f"  [WARN] shape {shape.Id} のテキスト復元に失敗: {e}",
+                              file=sys.stderr)
 
-        # 変更を保存せずに閉じる
+        # 念のため「変更なし」扱いにして、Close時の保存ダイアログを抑制
+        try:
+            presentation.Saved = True
+        except Exception:
+            pass
+
         presentation.Close()
     finally:
         ppt_app.Quit()
